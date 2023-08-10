@@ -1,0 +1,12 @@
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.deps.json
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.dll
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.pdb
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.csproj.AssemblyReference.cache
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.AssemblyInfoInputs.cache
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.AssemblyInfo.cs
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.csproj.CoreCompileInputs.cache
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.dll
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\refint\SpectraUtils.dll
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\SpectraUtils.pdb
+C:\Users\OGUZHAN\Desktop\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net6.0\ref\SpectraUtils.dll
