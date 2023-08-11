@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\NuGet Çalışması\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj",
+      "projectUniqueName": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\GITHUB\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj",
       "projectName": "SpectraUtils",
-      "projectPath": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\NuGet Çalışması\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj",
+      "projectPath": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\GITHUB\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj",
       "packagesPath": "C:\\Users\\OGUZHAN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\NuGet Çalışması\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\obj\\",
+      "outputPath": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\GITHUB\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

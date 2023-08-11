@@ -1,4 +1,4 @@
-# Dependency
+﻿# Dependency
 This library was created by .Net6.0
 
 ## Description
