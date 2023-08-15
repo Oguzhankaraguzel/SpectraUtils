@@ -1,4 +1,4 @@
-﻿# Dependency
+# Dependency
 This library was created by .Net6.0
 
 ## Description
@@ -8,6 +8,7 @@ The package made to step into the world of NuGet as a jr. software developer.
 ## Use
 
 ```Csharp
+        ISpectraUtil helper = new SperctraUtil();
 		string name = "oĞuzHan";
         name = helper.NameEdit.NameCorrection(name);
             
@@ -32,7 +33,9 @@ The package made to step into the world of NuGet as a jr. software developer.
         [TCIDValidation] // Id number validation for Türkiye 
         public string Identity { get; set; }
         [AllowedExtensions(extensions: new string[] { ".jpg", ".jpeg", ".png", ".pdf" }, maxFileSizeInBytes:1024*1024*2)]
-        public string File { get; set; }
+        public string FilePath { get; set; }
+        [AllowedExtensions(extensions: new string[] { ".jpg", ".jpeg", ".png", ".pdf" }, maxFileSizeInBytes:1024*1024*2)]
+        public IFormFile File { get; set; }
 ```
 
 ## Result

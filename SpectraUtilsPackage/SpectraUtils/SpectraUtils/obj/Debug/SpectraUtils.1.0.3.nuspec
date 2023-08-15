@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SpectraUtils</id>
+    <version>1.0.3</version>
+    <title>Spectra Utils</title>
+    <authors>Oğuzhan KARAGÜZEL</authors>
+    <icon>tools.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://www.oguzhankaraguzel.com/</projectUrl>
+    <description>A simple tool for various verifications and fixes in the user registration process</description>
+    <copyright>Copyright 2023</copyright>
+    <tags>validation correction password generator</tags>
+    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" />
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\OGUZHAN\Desktop\yazılım dersler\NuGet Çalışması\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.dll" target="lib\net6.0\SpectraUtils.dll" />
+    <file src="C:\Users\OGUZHAN\Desktop\yazılım dersler\NuGet Çalışması\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.xml" target="lib\net6.0\SpectraUtils.xml" />
+    <file src="C:\Users\OGUZHAN\Desktop\yazılım dersler\NuGet Çalışması\SpectraUtilsPackage\SpectraUtils\SpectraUtils\README.md" target="\README.md" />
+    <file src="C:\Users\OGUZHAN\Desktop\tools.png" target="\tools.png" />
+  </files>
+</package>
