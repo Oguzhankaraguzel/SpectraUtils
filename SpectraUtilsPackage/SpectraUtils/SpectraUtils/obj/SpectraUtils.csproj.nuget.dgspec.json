@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\NuGet Çalışması\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj": {
-      "version": "1.0.3",
+      "version": "1.1.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\NuGet Çalışması\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj",
         "projectName": "SpectraUtils",
@@ -43,6 +43,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -6,6 +6,7 @@ namespace SpectraUtils.Concrete
 {
     public class PasswordHelper : IPasswordHelper
     {
+        private readonly Random rnd = new Random();
         /// <summary>
         /// Gets a random standard password with a default length of 8 characters.
         /// </summary>
@@ -28,8 +29,7 @@ namespace SpectraUtils.Concrete
             if (!includeUppercaseLetter && !includeLowercaseLetter && !includeSpecialCharacter && !includeNumber)
                 throw new ArgumentException("At least one character type (uppercase letter, lowercase letter, special character, or number) must be included in the password.");
 
-            string passwordBuilder = "";
-            Random rnd = new Random();
+            StringBuilder passwordBuilder = new StringBuilder();
             int counter = 0;
 
             while (counter < passwordLength)
@@ -38,10 +38,9 @@ namespace SpectraUtils.Concrete
 
                 if ((includeUppercaseLetter && (c >= 'A' && c <= 'Z')) || (includeLowercaseLetter && (c >= 'a' && c <= 'z')) || (includeNumber && (c >= '0' && c <= '9')) || (includeSpecialCharacter && ((c >= 33 && c <= 47) || (c >= 58 && c <= 64) || (c >= 91 && c <= 96) || (c >= 123 && c <= 126))))
                 {
-                    passwordBuilder += c;
+                    passwordBuilder.Append(c);
                     counter++;
                 }
-
             }
 
             return passwordBuilder.ToString();

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "WAnJWHcCw0OXbJwtHRdDh6w13oj/lIVokP24nAkf07m6yVE0eLZCvLsesMRr1AH8FVwy1gHQrxZKwmrozRx/GA==",
+  "dgSpecHash": "Zyk1kB7kZMtzvY0Pi78auI5Mv+Z8sRFsyicIbS6hsQD8TKiNDjTUv+NqmMSgwLo3dtLuDgZ/MSiW6fFCDG2xww==",
   "success": true,
   "projectFilePath": "C:\\Users\\OGUZHAN\\Desktop\\yazılım dersler\\NuGet Çalışması\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\OGUZHAN\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\OGUZHAN\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\OGUZHAN\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

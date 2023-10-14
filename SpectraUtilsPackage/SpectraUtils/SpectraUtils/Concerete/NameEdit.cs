@@ -6,6 +6,7 @@ namespace SpectraUtils.Concerete
 {
     public class NameEdit : INameEdit
     {
+
         /// <summary>
         /// Corrects the capitalization and removes spaces from a given name. (naME = Name).
         /// </summary>
@@ -15,10 +16,25 @@ namespace SpectraUtils.Concerete
         {
             if (string.IsNullOrEmpty(name)) return name!;
 
-            name = name.Replace(" ", "");
-            string correctedName = char.ToUpper(name[0]) + name.Substring(1).ToLower();
+            StringBuilder sb = new StringBuilder();
+            bool isFirstChar = true;
 
-            return correctedName;
+            foreach (char c in name)
+            {
+                if (c != ' ')
+                {
+                    if (isFirstChar)
+                    {
+                        sb.Append(char.ToUpper(c));
+                        isFirstChar = false;
+                    }
+                    else
+                    {
+                        sb.Append(char.ToLower(c));
+                    }
+                }
+            }
+            return sb.ToString();
         }
 
         /// <summary>
@@ -30,15 +46,18 @@ namespace SpectraUtils.Concerete
         {
             if (names == null || names.Length == 0) return string.Empty;
 
+            StringBuilder sb = new StringBuilder();
+
             for (int i = 0; i < names.Length; i++)
             {
                 if (!string.IsNullOrEmpty(names[i]))
                 {
-                    names[i] = NameCorrection(names[i]);
+                    if (i > 0) sb.Append(" ");
+                    sb.Append(NameCorrection(names[i]));
                 }
             }
 
-            return string.Join(" ", names);
+            return sb.ToString();
         }
 
         /// <summary>
@@ -49,8 +68,13 @@ namespace SpectraUtils.Concerete
         public string SirNameCorrection(string? sirName)
         {
             if (string.IsNullOrEmpty(sirName)) return sirName!;
-            return sirName.Replace(" ", "").ToUpper();
+
+            StringBuilder sb = new StringBuilder(sirName);
+            sb.Replace(" ", "");
+
+            return sb.ToString().ToUpper();
         }
+
 
         /// <summary>
         /// Corrects the capitalization and removes spaces from one or more sir names.
@@ -61,16 +85,20 @@ namespace SpectraUtils.Concerete
         {
             if (sirNames == null || sirNames.Length == 0) return string.Empty;
 
+            StringBuilder sb = new StringBuilder();
+
             for (int i = 0; i < sirNames.Length; i++)
             {
                 if (!string.IsNullOrEmpty(sirNames[i]))
                 {
-                    sirNames[i] = SirNameCorrection(sirNames[i]);
+                    if (i > 0) sb.Append(" ");
+                    sb.Append(SirNameCorrection(sirNames[i]));
                 }
             }
 
-            return string.Join(" ", sirNames);
+            return sb.ToString();
         }
+
 
 
         /// <summary>
@@ -83,9 +111,17 @@ namespace SpectraUtils.Concerete
         {
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(sirName)) return name + sirName;
 
-            return NameCorrection(name) + " " + SirNameCorrection(sirName);
+            StringBuilder sb = new StringBuilder();
 
+            sb.Append(NameCorrection(name));
+
+            if (sb.Length > 0) sb.Append(" ");
+
+            sb.Append(SirNameCorrection(sirName));
+
+            return sb.ToString();
         }
+
 
         /// <summary>
         /// Corrects the capitalization and spacing of the given names and sir names, and concatenates them to form a full name.
@@ -95,9 +131,42 @@ namespace SpectraUtils.Concerete
         /// <returns>The corrected full name with proper capitalization and spacing.</returns>
         public string FullNameCorrection(string?[] names, string?[] sirNames)
         {
-            if (names == null && sirNames == null) return names + " " + sirNames;
-            string correctedFullNames = NameCorrection(names!) + " " + SirNameCorrection(sirNames!);
-            return correctedFullNames;
+            if ((names == null || names.Length == 0) && (sirNames == null || sirNames.Length == 0))
+                return string.Empty;
+
+            StringBuilder sb = new StringBuilder();
+
+            if (names != null)
+            {
+                foreach (var name in names)
+                {
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        if (sb.Length > 0)
+                        {
+                            sb.Append(" ");
+                        }
+                        sb.Append(NameCorrection(name));
+                    }
+                }
+            }
+
+            if (sirNames != null)
+            {
+                foreach (var sirName in sirNames)
+                {
+                    if (!string.IsNullOrEmpty(sirName))
+                    {
+                        if (sb.Length > 0)
+                        {
+                            sb.Append(" ");
+                        }
+                        sb.Append(SirNameCorrection(sirName));
+                    }
+                }
+            }
+
+            return sb.ToString();
         }
 
         /// <summary>
@@ -109,10 +178,19 @@ namespace SpectraUtils.Concerete
         {
             if (string.IsNullOrEmpty(input)) return input!;
 
-            string? normalizedString = input!.Normalize(NormalizationForm.FormD);
-            string result = new string(normalizedString.Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark).ToArray());
+            StringBuilder sb = new StringBuilder();
 
-            return result;
+            string normalizedString = input.Normalize(NormalizationForm.FormD);
+
+            foreach (char c in normalizedString)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(c);
+                }
+            }
+
+            return sb.ToString();
         }
 
         /// <summary>
@@ -125,8 +203,10 @@ namespace SpectraUtils.Concerete
             if (string.IsNullOrEmpty(name)) return name!;
 
             Random rnd = new Random();
+            string standardized = StandardizeCharacters(name);
+            string randomSuffix = rnd.Next(0, 10000).ToString("D4");
 
-            return StandardizeCharacters(name) + rnd.Next(0, 10000).ToString("D4");
+            return standardized + randomSuffix;
         }
 
     }
