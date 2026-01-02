@@ -1,0 +1,50 @@
+﻿using System.ComponentModel.DataAnnotations;
+using SpectraUtils.Validation;
+
+namespace SpectraUtils.Attributes.ValidationAttributes;
+
+/// <summary>
+/// Validation attribute for verifying International Bank Account Numbers (IBAN).
+/// </summary>
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
+public sealed class IbanValidationAttribute : ValidationAttribute
+{
+    private const string DefaultErrorMessage = "Invalid IBAN.";
+
+    /// <summary>
+    /// When specified, validates that the IBAN belongs to the given country code (e.g., "TR").
+    /// </summary>
+    public string? CountryCode { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IbanValidationAttribute"/> class.
+    /// </summary>
+    public IbanValidationAttribute()
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IbanValidationAttribute"/> class.
+    /// </summary>
+    /// <param name="countryCode">Two-letter ISO country code (e.g., "TR").</param>
+    public IbanValidationAttribute(string countryCode)
+    {
+        CountryCode = countryCode;
+    }
+
+    /// <inheritdoc />
+    protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+    {
+        if (value == null)
+            return ValidationResult.Success!;
+
+        if (value is not string iban || string.IsNullOrWhiteSpace(iban))
+            return new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
+
+        bool valid = IbanValidator.IsValid(iban, CountryCode);
+
+        return valid
+            ? ValidationResult.Success!
+            : new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
+    }
+}

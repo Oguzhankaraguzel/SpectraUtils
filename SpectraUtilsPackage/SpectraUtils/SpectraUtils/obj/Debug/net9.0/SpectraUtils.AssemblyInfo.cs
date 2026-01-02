@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright 2024")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(@"A comprehensive utility library for validations, name formatting, and secure password generation in .NET applications. Features include Turkish ID validation, minimum age validation, file extension validation, Turkish-aware name formatting, and cryptographically secure password generation.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0+9e36d9c95e88939273c246b5014b4bff51c25e6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0+3306d0ccbb6228f7662b9a4d945c8908e8ac923c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Spectra Utils")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpectraUtils")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]

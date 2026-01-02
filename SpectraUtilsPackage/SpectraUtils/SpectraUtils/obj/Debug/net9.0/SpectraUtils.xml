@@ -133,6 +133,30 @@
             <param name="validationContext">The context information about the validation operation.</param>
             <returns>A <see cref="T:System.ComponentModel.DataAnnotations.ValidationResult"/> indicating whether validation succeeded or failed.</returns>
         </member>
+        <member name="T:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute">
+            <summary>
+            Validation attribute for verifying International Bank Account Numbers (IBAN).
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute.CountryCode">
+            <summary>
+            When specified, validates that the IBAN belongs to the given country code (e.g., "TR").
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute"/> class.
+            </summary>
+            <param name="countryCode">Two-letter ISO country code (e.g., "TR").</param>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.IbanValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc />
+        </member>
         <member name="T:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute">
             <summary>
             Validation attribute to enforce a minimum age requirement based on birth date.
@@ -182,6 +206,14 @@
             </summary>
             <param name="tcKimlik">The identification number to validate.</param>
             <returns>True if valid, otherwise false.</returns>
+        </member>
+        <member name="T:SpectraUtils.Attributes.ValidationAttributes.TurkishTaxNumberValidationAttribute">
+            <summary>
+            Validation attribute for verifying Turkish Tax Identification Numbers (VKN).
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.TurkishTaxNumberValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc />
         </member>
         <member name="T:SpectraUtils.Concerete.NameEdit">
             <summary>
@@ -324,6 +356,97 @@
             Gets the password helper utility for creating and hashing passwords.
             </summary>
         </member>
+        <member name="T:SpectraUtils.Security.IOneTimeCodeGenerator">
+            <summary>
+            Provides one-time-password (OTP) generation utilities.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Security.IOneTimeCodeGenerator.GenerateNumericCode(System.Int32)">
+            <summary>
+            Generates a numeric one-time code.
+            </summary>
+            <param name="digits">Number of digits. Default is 6.</param>
+            <returns>OTP code as string (zero-padded).</returns>
+        </member>
+        <member name="T:SpectraUtils.Security.IPasswordHasher">
+            <summary>
+            Provides password hashing and verification operations.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Security.IPasswordHasher.Hash(System.String)">
+            <summary>
+            Hashes the provided password.
+            </summary>
+            <param name="password">Plain text password.</param>
+            <returns>A persisted hash string containing all parameters required for verification.</returns>
+        </member>
+        <member name="M:SpectraUtils.Security.IPasswordHasher.Verify(System.String,System.String)">
+            <summary>
+            Verifies the password against the persisted hash.
+            </summary>
+            <param name="password">Plain text password.</param>
+            <param name="hash">Previously created hash string.</param>
+            <returns><see langword="true"/> when the password matches the hash; otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="T:SpectraUtils.Security.ISecureTokenGenerator">
+            <summary>
+            Generates cryptographically secure tokens.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Security.ISecureTokenGenerator.GenerateToken(System.Int32)">
+            <summary>
+            Generates a Base64Url-encoded token.
+            </summary>
+            <param name="byteLength">Number of random bytes (before encoding). Default is 32 bytes.</param>
+            <returns>Base64Url token.</returns>
+        </member>
+        <member name="T:SpectraUtils.Security.OneTimeCodeGenerator">
+            <summary>
+            Generates random numeric OTP codes.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Security.OneTimeCodeGenerator.GenerateNumericCode(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:SpectraUtils.Security.Pbkdf2PasswordHasher">
+            <summary>
+            Password hasher based on PBKDF2 (RFC 2898).
+            
+            Format: <c>PBKDF2$SHA256$iterations$saltBase64$hashBase64</c>
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.Security.Pbkdf2PasswordHasher"/> class.
+            </summary>
+            <param name="iterations">PBKDF2 iterations. Defaults to 210_000 (reasonable for modern systems).</param>
+            <param name="saltSize">Salt size in bytes. Defaults to 16.</param>
+            <param name="keySize">Derived key size in bytes. Defaults to 32 (256-bit).</param>
+        </member>
+        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.Hash(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.Verify(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.TryParseHash(System.String,System.Int32@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Parses the persisted hash format.
+            </summary>
+        </member>
+        <member name="T:SpectraUtils.Security.SecureTokenGenerator">
+            <summary>
+            Generates cryptographically secure Base64Url tokens.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Security.SecureTokenGenerator.GenerateToken(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:SpectraUtils.Security.SecureTokenGenerator.Base64UrlEncode(System.Byte[])">
+            <summary>
+            Encodes bytes as Base64Url (RFC 4648) without padding.
+            </summary>
+        </member>
         <member name="T:SpectraUtils.SpectraUtil">
             <summary>
             Provides utility methods for name editing and password management.
@@ -353,6 +476,36 @@
             <param name="nameEdit">The name editing utility instance.</param>
             <param name="passwordHelper">The password helper utility instance.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null.</exception>
+        </member>
+        <member name="T:SpectraUtils.Validation.IbanValidator">
+            <summary>
+            Provides utilities for validating International Bank Account Numbers (IBAN).
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Validation.IbanValidator.IsValid(System.String,System.String)">
+            <summary>
+            Validates the provided IBAN using the standard MOD-97 algorithm.
+            </summary>
+            <param name="iban">IBAN value. Whitespaces are ignored.</param>
+            <param name="expectedCountryCode">Optional. If provided, enforces the IBAN starts with this 2-letter country code (e.g., "TR").</param>
+            <returns><see langword="true"/> when the IBAN is valid; otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="T:SpectraUtils.Validation.TurkishTaxNumberValidator">
+            <summary>
+            Provides utilities for validating 10-digit Turkish Tax Identification Numbers (VKN).
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Validation.TurkishTaxNumberValidator.IsValid(System.String)">
+            <summary>
+            Validates a Turkish Tax Identification Number (VKN).
+            </summary>
+            <param name="taxNumber">A 10-digit VKN. Whitespaces are ignored.</param>
+            <returns><see langword="true"/> when the VKN is valid; otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:SpectraUtils.Validation.TurkishTaxNumberValidator.Pow2Mod9(System.Int32)">
+            <summary>
+            Computes (2^exp) mod 9.
+            </summary>
         </member>
     </members>
 </doc>

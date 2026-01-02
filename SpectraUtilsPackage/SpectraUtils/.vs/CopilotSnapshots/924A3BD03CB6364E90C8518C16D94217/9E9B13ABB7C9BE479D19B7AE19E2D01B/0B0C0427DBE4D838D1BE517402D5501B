@@ -1,0 +1,48 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using SpectraUtils.Abstract;
+using SpectraUtils.Concerete;
+using SpectraUtils.Concrete;
+
+namespace SpectraUtils.Extensions;
+
+/// <summary>
+/// Extension methods for adding SpectraUtils services to the dependency injection container.
+/// </summary>
+public static class ServiceCollectionExtensions
+{
+    /// <summary>
+    /// Adds SpectraUtils services to the specified <see cref="IServiceCollection"/>.
+    /// Registers <see cref="ISpectraUtil"/>, <see cref="INameEdit"/>, and <see cref="IPasswordHelper"/> as singletons.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
+    /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when services is null.</exception>
+    public static IServiceCollection AddSpectraUtils(this IServiceCollection services)
+    {
+        ArgumentNullException.ThrowIfNull(services);
+
+        services.AddSingleton<INameEdit, NameEdit>();
+        services.AddSingleton<IPasswordHelper, PasswordHelper>();
+        services.AddSingleton<ISpectraUtil, SpectraUtil>();
+
+        return services;
+    }
+
+    /// <summary>
+    /// Adds SpectraUtils services to the specified <see cref="IServiceCollection"/> with scoped lifetime.
+    /// Useful when you need a new instance per request in web applications.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
+    /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when services is null.</exception>
+    public static IServiceCollection AddSpectraUtilsScoped(this IServiceCollection services)
+    {
+        ArgumentNullException.ThrowIfNull(services);
+
+        services.AddScoped<INameEdit, NameEdit>();
+        services.AddScoped<IPasswordHelper, PasswordHelper>();
+        services.AddScoped<ISpectraUtil, SpectraUtil>();
+
+        return services;
+    }
+}
