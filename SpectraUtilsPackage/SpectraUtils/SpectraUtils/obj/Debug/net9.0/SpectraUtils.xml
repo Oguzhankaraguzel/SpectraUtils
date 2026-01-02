@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpectraUtils</name>
+    </assembly>
+    <members>
+        <member name="T:SpectraUtils.Abstract.INameEdit">
+            <summary>
+            Provides methods for correcting, standardizing, and formatting names and surnames.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.NameCorrection(System.String)">
+            <summary>
+            Corrects the capitalization and removes spaces from a given name. (naME = Name).
+            </summary>
+            <param name="name">The name to be corrected.</param>
+            <returns>The name with corrected capitalization.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.NameCorrection(System.String[])">
+            <summary>
+            Corrects the capitalization of multiple names and concatenates them into a single string.
+            </summary>
+            <param name="names">The names to be corrected.</param>
+            <returns>The corrected names concatenated with spaces.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.SirNameCorrection(System.String)">
+            <summary>
+            Corrects the capitalization and removes spaces from a given sir name.
+            </summary>
+            <param name="sirName">The sir name to be corrected.</param>
+            <returns>The corrected sir name without spaces and with uppercase letters.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.SirNameCorrection(System.String[])">
+            <summary>
+            Corrects the capitalization and removes spaces from one or more sir names.
+            </summary>
+            <param name="sirNames">The sir names to be corrected.</param>
+            <returns>The corrected sir names without spaces and with uppercase letters.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.FullNameCorrection(System.String,System.String)">
+            <summary>
+            Corrects the capitalization and spaces in the given name and sir name, and concatenates them to form a full name.
+            </summary>
+            <param name="name">The name to be corrected.</param>
+            <param name="sirName">The sir name to be corrected.</param>
+            <returns>The corrected full name with proper capitalization and spacing.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.FullNameCorrection(System.String[],System.String[])">
+            <summary>
+            Corrects the capitalization and spacing of the given names and sir names, and concatenates them to form a full name.
+            </summary>
+            <param name="names">The names to be corrected.</param>
+            <param name="sirNames">The sir names to be corrected.</param>
+            <returns>The corrected full name with proper capitalization and spacing.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.StandardizeCharacters(System.String)">
+            <summary>
+            Standardizes and normalizes characters in the input string by removing diacritic marks.
+            </summary>
+            <param name="input">The input string to be standardized.</param>
+            <returns>The standardized string without diacritic marks.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.INameEdit.CreateUserName(System.String)">
+            <summary>
+            Creates a user name by standardizing the given name and appending a four-digit random number.
+            </summary>
+            <param name="name">The name to create the user name from.</param>
+            <returns>The generated user name.</returns>
+        </member>
+        <member name="T:SpectraUtils.Abstract.IPasswordHelper">
+            <summary>
+            Provides methods for creating and hashing passwords with various requirements.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Abstract.IPasswordHelper.CreatePassword(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a password with the specified length and character requirements.
+            </summary>
+            <param name="passwordLength">The length of the password to be generated.</param>
+            <param name="includeUppercaseLetter">Determines whether to include uppercase letters in the password (default: true).</param>
+            <param name="includeLowercaseLetter">Determines whether to include lowercase letters in the password (default: true).</param>
+            <param name="includeSpecialCharacter">Determines whether to include special characters in the password (default: true).</param>
+            <param name="includeNumber">Determines whether to include numbers in the password (default: true).</param>
+            <returns>The generated password that meets the specified requirements.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.IPasswordHelper.HashPassword(System.String)">
+            <summary>
+            Hashes a password using the SHA-256 algorithm.
+            </summary>
+            <param name="password">The password to be hashed.</param>
+            <returns>The hashed password as a hexadecimal string.</returns>
+        </member>
+        <member name="P:SpectraUtils.Abstract.IPasswordHelper.CreateStardartPassword">
+            <summary>
+            Gets a random standard password with a default length of 8 characters.
+            </summary>
+        </member>
+        <member name="T:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute">
+            <summary>
+            Validation attribute to specify allowed file extensions and optional maximum file size for file uploads.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the AllowedExtensionsAttribute class with the specified supported file extensions.
+            </summary>
+            <param name="extensions">The supported file extensions (e.g., ".jpg", ".png").</param>
+            <exception cref="T:System.ArgumentException">Thrown when no extensions are provided.</exception>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute.#ctor(System.Int64,System.String[])">
+            <summary>
+            Initializes a new instance of the AllowedExtensionsAttribute class with the specified maximum file size and supported file extensions.
+            </summary>
+            <param name="maxFileSizeInBytes">The maximum file size allowed in bytes.</param>
+            <param name="extensions">The supported file extensions (e.g., ".jpg", ".png").</param>
+            <exception cref="T:System.ArgumentException">Thrown when no extensions are provided or max file size is invalid.</exception>
+        </member>
+        <member name="P:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute.AllowedExtensions">
+            <summary>
+            Gets the allowed file extensions.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute.MaxFileSizeInBytes">
+            <summary>
+            Gets the maximum allowed file size in bytes.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Validates the specified value to ensure it is a file with an allowed extension and, if specified, does not exceed the maximum file size.
+            </summary>
+            <param name="value">The value to validate. Can be an <see cref="T:Microsoft.AspNetCore.Http.IFormFile"/> or a file path as <see cref="T:System.String"/>.</param>
+            <param name="validationContext">The context information about the validation operation.</param>
+            <returns>A <see cref="T:System.ComponentModel.DataAnnotations.ValidationResult"/> indicating whether validation succeeded or failed.</returns>
+        </member>
+        <member name="T:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute">
+            <summary>
+            Validation attribute to enforce a minimum age requirement based on birth date.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute"/> class.
+            </summary>
+            <param name="minimumAge">The minimum age required.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when minimum age is negative.</exception>
+        </member>
+        <member name="P:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute.MinimumAge">
+            <summary>
+            Gets the minimum age requirement.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Validates whether the specified birth date meets the minimum age requirement.
+            </summary>
+            <param name="value">The birth date value to validate. Supports <see cref="T:System.DateTime"/> and <see cref="T:System.DateOnly"/>.</param>
+            <param name="validationContext">The context information about the validation operation.</param>
+            <returns>A <see cref="T:System.ComponentModel.DataAnnotations.ValidationResult"/> indicating whether validation succeeded.</returns>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.MinimumAgeAttribute.CalculateAge(System.DateOnly,System.DateOnly)">
+            <summary>
+            Calculates age accurately considering leap years.
+            </summary>
+        </member>
+        <member name="T:SpectraUtils.Attributes.ValidationAttributes.TCIDValidationAttribute">
+            <summary>
+            Validation attribute for verifying Turkish National Identification Numbers (TC Kimlik No).
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.TCIDValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Determines whether the specified value is a valid Turkish National Identification Number.
+            </summary>
+            <param name="value">The value of the object to validate.</param>
+            <param name="validationContext">The context information about the validation operation.</param>
+            <returns>A <see cref="T:System.ComponentModel.DataAnnotations.ValidationResult"/> indicating whether validation succeeded.</returns>
+        </member>
+        <member name="M:SpectraUtils.Attributes.ValidationAttributes.TCIDValidationAttribute.IsValidTcKimlik(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Checks if the given string is a valid Turkish National Identification Number.
+            </summary>
+            <param name="tcKimlik">The identification number to validate.</param>
+            <returns>True if valid, otherwise false.</returns>
+        </member>
+        <member name="T:SpectraUtils.Concerete.NameEdit">
+            <summary>
+            Provides methods for correcting, standardizing, and formatting names and surnames.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.NameCorrection(System.String)">
+            <summary>
+            Corrects the capitalization and removes spaces from a given name. (naME = Name).
+            </summary>
+            <param name="name">The name to be corrected.</param>
+            <returns>The name with corrected capitalization.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.NameCorrection(System.String[])">
+            <summary>
+            Corrects the capitalization of multiple names and concatenates them into a single string.
+            </summary>
+            <param name="names">The names to be corrected.</param>
+            <returns>The corrected names concatenated with spaces.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.SirNameCorrection(System.String)">
+            <summary>
+            Corrects the capitalization and removes spaces from a given sir name.
+            </summary>
+            <param name="sirName">The sir name to be corrected.</param>
+            <returns>The corrected sir name without spaces and with uppercase letters.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.SirNameCorrection(System.String[])">
+            <summary>
+            Corrects the capitalization and removes spaces from one or more sir names.
+            </summary>
+            <param name="sirNames">The sir names to be corrected.</param>
+            <returns>The corrected sir names without spaces and with uppercase letters.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.FullNameCorrection(System.String,System.String)">
+            <summary>
+            Corrects the capitalization and spaces in the given name and sir name, and concatenates them to form a full name.
+            </summary>
+            <param name="name">The name to be corrected.</param>
+            <param name="sirName">The sir name to be corrected.</param>
+            <returns>The corrected full name with proper capitalization and spacing.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.FullNameCorrection(System.String[],System.String[])">
+            <summary>
+            Corrects the capitalization and spacing of the given names and sir names, and concatenates them to form a full name.
+            </summary>
+            <param name="names">The names to be corrected.</param>
+            <param name="sirNames">The sir names to be corrected.</param>
+            <returns>The corrected full name with proper capitalization and spacing.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.StandardizeCharacters(System.String)">
+            <summary>
+            Standardizes and normalizes characters in the input string by removing diacritic marks.
+            </summary>
+            <param name="input">The input string to be standardized.</param>
+            <returns>The standardized string without diacritic marks.</returns>
+        </member>
+        <member name="M:SpectraUtils.Concerete.NameEdit.CreateUserName(System.String)">
+            <summary>
+            Creates a user name by standardizing the given name and appending a four-digit random number.
+            </summary>
+            <param name="name">The name to create the user name from.</param>
+            <returns>The generated user name.</returns>
+        </member>
+        <member name="T:SpectraUtils.Concrete.PasswordHelper">
+            <summary>
+            Provides methods for creating and hashing passwords with various requirements.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.Concrete.PasswordHelper.CreateStardartPassword">
+            <summary>
+            Gets a random standard password with a default length of 8 characters.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Concrete.PasswordHelper.CreatePassword(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a password with the specified length and character requirements.
+            </summary>
+            <param name="passwordLength">The length of the password to be generated.</param>
+            <param name="includeUppercaseLetter">Determines whether to include uppercase letters in the password (default: true).</param>
+            <param name="includeLowercaseLetter">Determines whether to include lowercase letters in the password (default: true).</param>
+            <param name="includeSpecialCharacter">Determines whether to include special characters in the password (default: true).</param>
+            <param name="includeNumber">Determines whether to include numbers in the password (default: true).</param>
+            <returns>The generated password that meets the specified requirements.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when password length is less than 4 or no character types are selected.</exception>
+        </member>
+        <member name="M:SpectraUtils.Concrete.PasswordHelper.HashPassword(System.String)">
+            <summary>
+            Hashes a password using the SHA-256 algorithm.
+            </summary>
+            <param name="password">The password to be hashed.</param>
+            <returns>The hashed password as a hexadecimal string.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when password is null.</exception>
+        </member>
+        <member name="M:SpectraUtils.Concrete.PasswordHelper.GetSecureRandomChar(System.String)">
+            <summary>
+            Gets a cryptographically secure random character from the specified character set.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Concrete.PasswordHelper.ShuffleArray(System.Char[])">
+            <summary>
+            Shuffles an array using the Fisher-Yates algorithm with cryptographically secure random numbers.
+            </summary>
+        </member>
+        <member name="T:SpectraUtils.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for adding SpectraUtils services to the dependency injection container.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Extensions.ServiceCollectionExtensions.AddSpectraUtils(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds SpectraUtils services to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Registers <see cref="T:SpectraUtils.ISpectraUtil"/>, <see cref="T:SpectraUtils.Abstract.INameEdit"/>, and <see cref="T:SpectraUtils.Abstract.IPasswordHelper"/> as singletons.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add services to.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when services is null.</exception>
+        </member>
+        <member name="M:SpectraUtils.Extensions.ServiceCollectionExtensions.AddSpectraUtilsScoped(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds SpectraUtils services to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> with scoped lifetime.
+            Useful when you need a new instance per request in web applications.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to add services to.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when services is null.</exception>
+        </member>
+        <member name="T:SpectraUtils.ISpectraUtil">
+            <summary>
+            Interface for the main utility class providing access to name editing and password management services.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.ISpectraUtil.NameEdit">
+            <summary>
+            Gets the name editing utility for correcting and formatting names.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.ISpectraUtil.PasswordHelper">
+            <summary>
+            Gets the password helper utility for creating and hashing passwords.
+            </summary>
+        </member>
+        <member name="T:SpectraUtils.SpectraUtil">
+            <summary>
+            Provides utility methods for name editing and password management.
+            This class can be registered as a singleton in dependency injection containers.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.SpectraUtil.NameEdit">
+            <summary>
+            Gets the name editing utility for correcting and formatting names.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.SpectraUtil.PasswordHelper">
+            <summary>
+            Gets the password helper utility for creating and hashing passwords.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.SpectraUtil.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.SpectraUtil"/> class with default implementations.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.SpectraUtil.#ctor(SpectraUtils.Abstract.INameEdit,SpectraUtils.Abstract.IPasswordHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.SpectraUtil"/> class with custom implementations.
+            Useful for dependency injection scenarios.
+            </summary>
+            <param name="nameEdit">The name editing utility instance.</param>
+            <param name="passwordHelper">The password helper utility instance.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null.</exception>
+        </member>
+    </members>
+</doc>

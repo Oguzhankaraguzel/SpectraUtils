@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Spectra Utils</Title>
+    <Version>1.1.0</Version>
+    <Authors>Oğuzhan KARAGÜZEL</Authors>
+    <Company>Oğuzhan KARAGÜZEL</Company>
+    <Product>Spectra Utils</Product>
+    <Description>A simple tool for various verifications and fixes in the user registration process</Description>
+    <Copyright>Copyright 2023</Copyright>
+    <PackageProjectUrl>https://www.oguzhankaraguzel.com/</PackageProjectUrl>
+    <PackageIcon>tools.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Oguzhankaraguzel/SpectraUtils</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>validation correction password generator</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageReleaseNotes>Performance optimization has been made. AllowedExtension attribute adjusted to IFormFile</PackageReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="SpectraUtils_new.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="tools.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

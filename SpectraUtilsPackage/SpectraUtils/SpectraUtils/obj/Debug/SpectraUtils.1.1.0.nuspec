@@ -12,17 +12,17 @@
     <releaseNotes>Performance optimization has been made. AllowedExtension attribute adjusted to IFormFile</releaseNotes>
     <copyright>Copyright 2023</copyright>
     <tags>validation correction password generator</tags>
-    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" />
+    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" commit="9e36d9c95e88939273c246b5014b4bff51c25e6c" />
     <dependencies>
-      <group targetFramework="net6.0">
+      <group targetFramework="net9.0">
         <dependency id="Microsoft.AspNetCore.Http.Features" version="5.0.17" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\OGUZHAN\Desktop\yazılım dersler\NuGet Çalışması\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.dll" target="lib\net6.0\SpectraUtils.dll" />
-    <file src="C:\Users\OGUZHAN\Desktop\yazılım dersler\NuGet Çalışması\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net6.0\SpectraUtils.xml" target="lib\net6.0\SpectraUtils.xml" />
-    <file src="C:\Users\OGUZHAN\Desktop\yazılım dersler\NuGet Çalışması\SpectraUtilsPackage\SpectraUtils\SpectraUtils\README.md" target="\README.md" />
-    <file src="C:\Users\OGUZHAN\Desktop\tools.png" target="\tools.png" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net9.0\SpectraUtils.dll" target="lib\net9.0\SpectraUtils.dll" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net9.0\SpectraUtils.xml" target="lib\net9.0\SpectraUtils.xml" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\README.md" target="\README.md" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\tools.png" target="\tools.png" />
   </files>
 </package>

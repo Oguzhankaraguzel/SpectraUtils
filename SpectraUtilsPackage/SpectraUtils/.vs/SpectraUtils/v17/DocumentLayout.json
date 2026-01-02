@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\attributes\\validationattributes\\tcidvalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\attributes\\validationattributes\\tcidvalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\attributes\\validationattributes\\minimumageattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\attributes\\validationattributes\\minimumageattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\attributes\\validationattributes\\allowedextensionsattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\attributes\\validationattributes\\allowedextensionsattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\spectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\spectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TCIDValidationAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
+              "RelativeToolTip": "SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T20:36:42.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MinimumAgeAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\MinimumAgeAttribute.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Attributes\\ValidationAttributes\\MinimumAgeAttribute.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\MinimumAgeAttribute.cs",
+              "RelativeToolTip": "SpectraUtils\\Attributes\\ValidationAttributes\\MinimumAgeAttribute.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T20:36:25.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AllowedExtensionsAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\AllowedExtensionsAttribute.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Attributes\\ValidationAttributes\\AllowedExtensionsAttribute.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\AllowedExtensionsAttribute.cs",
+              "RelativeToolTip": "SpectraUtils\\Attributes\\ValidationAttributes\\AllowedExtensionsAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T20:35:11.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SpectraUtil.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtil.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\SpectraUtil.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtil.cs",
+              "RelativeToolTip": "SpectraUtils\\SpectraUtil.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T20:34:44.652Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

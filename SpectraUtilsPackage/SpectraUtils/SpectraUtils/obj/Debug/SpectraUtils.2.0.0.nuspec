@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SpectraUtils</id>
+    <version>2.0.0</version>
+    <title>Spectra Utils</title>
+    <authors>O�uzhan KARAG�ZEL</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>tools.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://www.oguzhankaraguzel.com/</projectUrl>
+    <description>A comprehensive utility library for validations, name formatting, and secure password generation in .NET applications. Features include Turkish ID validation, minimum age validation, file extension validation, Turkish-aware name formatting, and cryptographically secure password generation.</description>
+    <releaseNotes>v2.0.0: Major performance improvements, cryptographically secure password generation, Turkish character support for names, DateOnly support for MinimumAgeAttribute, dependency injection support, and HashSet-based extension validation.</releaseNotes>
+    <copyright>Copyright 2024</copyright>
+    <tags>validation correction password generator turkish tcid name-formatting security aspnetcore</tags>
+    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" commit="9e36d9c95e88939273c246b5014b4bff51c25e6c" />
+    <dependencies>
+      <group targetFramework="net9.0">
+        <dependency id="Microsoft.AspNetCore.Http.Features" version="5.0.17" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="9.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net9.0\SpectraUtils.dll" target="lib\net9.0\SpectraUtils.dll" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net9.0\SpectraUtils.xml" target="lib\net9.0\SpectraUtils.xml" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\README.md" target="\README.md" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\tools.png" target="\tools.png" />
+  </files>
+</package>

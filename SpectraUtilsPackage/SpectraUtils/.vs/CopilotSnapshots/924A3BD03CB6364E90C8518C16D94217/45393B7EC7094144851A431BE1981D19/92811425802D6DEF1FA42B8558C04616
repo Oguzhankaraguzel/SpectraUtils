@@ -1,0 +1,57 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SpectraUtils.Attributes.ValidationAttributes;
+
+/// <summary>
+/// Validation attribute for verifying Turkish National Identification Numbers (TC Kimlik No).
+/// </summary>
+public class TCIDValidationAttribute : ValidationAttribute
+{
+    /// <summary>
+    /// Determines whether the specified value is a valid Turkish National Identification Number.
+    /// </summary>
+    /// <param name="value">The value of the object to validate.</param>
+    /// <param name="validationContext">The context information about the validation operation.</param>
+    /// <returns>A <see cref="ValidationResult"/> indicating whether validation succeeded.</returns>
+    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    {
+        if (value == null) return new ValidationResult(ErrorMessage = "You must write a valid ID!"); 
+
+        string? tcKimlik = value as string;
+
+        if (string.IsNullOrEmpty(tcKimlik))
+            return new ValidationResult(ErrorMessage = "You must write a valid ID!");
+
+        if (TcKimlikDogrulama(tcKimlik)) return ValidationResult.Success!;
+        
+        else return new ValidationResult(ErrorMessage = "Invalid ID!");
+    }
+
+    /// <summary>
+    /// Checks if the given string is a valid Turkish National Identification Number.
+    /// </summary>
+    /// <param name="pTCKimlik">The identification number to validate.</param>
+    /// <returns>True if valid, otherwise false.</returns>
+    private bool TcKimlikDogrulama(string pTCKimlik)
+    {
+        if (pTCKimlik.Length != 11 || pTCKimlik[0] == '0')
+            return false;
+
+        int toplam1 = Convert.ToInt32(pTCKimlik[0].ToString()) + Convert.ToInt32(pTCKimlik[2].ToString()) +
+                      Convert.ToInt32(pTCKimlik[4].ToString()) + Convert.ToInt32(pTCKimlik[6].ToString()) +
+                      Convert.ToInt32(pTCKimlik[8].ToString());
+        int toplam2 = Convert.ToInt32(pTCKimlik[1].ToString()) + Convert.ToInt32(pTCKimlik[3].ToString()) +
+                      Convert.ToInt32(pTCKimlik[5].ToString()) + Convert.ToInt32(pTCKimlik[7].ToString());
+
+        int sonuc = ((toplam1 * 7) - toplam2) % 10;
+
+        if (sonuc.ToString() != pTCKimlik[9].ToString())
+            return false;
+
+        int toplam3 = 0;
+        for (int i = 0; i < 10; i++)
+            toplam3 += Convert.ToInt32(pTCKimlik[i].ToString());
+
+        return (toplam3 % 10).ToString() == pTCKimlik[10].ToString();
+    }
+}

@@ -1,0 +1,15 @@
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net8.0\SpectraUtils.deps.json
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net8.0\SpectraUtils.dll
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net8.0\SpectraUtils.pdb
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net8.0\SpectraUtils.xml
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.csproj.AssemblyReference.cache
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.AssemblyInfoInputs.cache
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.AssemblyInfo.cs
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.csproj.CoreCompileInputs.cache
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.sourcelink.json
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.dll
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\refint\SpectraUtils.dll
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.xml
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\SpectraUtils.pdb
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\obj\Debug\net8.0\ref\SpectraUtils.dll
