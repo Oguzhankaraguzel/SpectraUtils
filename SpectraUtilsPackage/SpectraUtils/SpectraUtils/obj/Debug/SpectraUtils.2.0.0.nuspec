@@ -14,7 +14,7 @@
     <releaseNotes>v2.0.0: Major performance improvements, cryptographically secure password generation, Turkish character support for names, DateOnly support for MinimumAgeAttribute, dependency injection support, and HashSet-based extension validation.</releaseNotes>
     <copyright>Copyright 2024</copyright>
     <tags>validation correction password generator turkish tcid name-formatting security aspnetcore</tags>
-    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" commit="3306d0ccbb6228f7662b9a4d945c8908e8ac923c" />
+    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" commit="e46cb04565427cf60ee40fee05b1d801716f7e8d" />
     <dependencies>
       <group targetFramework="net9.0">
         <dependency id="Microsoft.AspNetCore.Http.Features" version="5.0.17" exclude="Build,Analyzers" />

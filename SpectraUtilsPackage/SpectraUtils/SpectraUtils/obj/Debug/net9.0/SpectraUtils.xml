@@ -67,6 +67,38 @@
             <param name="name">The name to create the user name from.</param>
             <returns>The generated user name.</returns>
         </member>
+        <member name="T:SpectraUtils.Abstract.IOneTimeCodeGenerator">
+            <summary>
+            Provides one-time-password (OTP) generation utilities.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Abstract.IOneTimeCodeGenerator.GenerateNumericCode(System.Int32)">
+            <summary>
+            Generates a numeric one-time code.
+            </summary>
+            <param name="digits">Number of digits. Default is 6.</param>
+            <returns>OTP code as string (zero-padded).</returns>
+        </member>
+        <member name="T:SpectraUtils.Abstract.IPasswordHasher">
+            <summary>
+            Provides password hashing and verification operations.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Abstract.IPasswordHasher.Hash(System.String)">
+            <summary>
+            Hashes the provided password.
+            </summary>
+            <param name="password">Plain text password.</param>
+            <returns>A persisted hash string containing all parameters required for verification.</returns>
+        </member>
+        <member name="M:SpectraUtils.Abstract.IPasswordHasher.Verify(System.String,System.String)">
+            <summary>
+            Verifies the password against the persisted hash.
+            </summary>
+            <param name="password">Plain text password.</param>
+            <param name="hash">Previously created hash string.</param>
+            <returns><see langword="true"/> when the password matches the hash; otherwise <see langword="false"/>.</returns>
+        </member>
         <member name="T:SpectraUtils.Abstract.IPasswordHelper">
             <summary>
             Provides methods for creating and hashing passwords with various requirements.
@@ -94,6 +126,18 @@
             <summary>
             Gets a random standard password with a default length of 8 characters.
             </summary>
+        </member>
+        <member name="T:SpectraUtils.Abstract.ISecureTokenGenerator">
+            <summary>
+            Generates cryptographically secure tokens.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Abstract.ISecureTokenGenerator.GenerateToken(System.Int32)">
+            <summary>
+            Generates a Base64Url-encoded token.
+            </summary>
+            <param name="byteLength">Number of random bytes (before encoding). Default is 32 bytes.</param>
+            <returns>Base64Url token.</returns>
         </member>
         <member name="T:SpectraUtils.Attributes.ValidationAttributes.AllowedExtensionsAttribute">
             <summary>
@@ -278,6 +322,53 @@
             <param name="name">The name to create the user name from.</param>
             <returns>The generated user name.</returns>
         </member>
+        <member name="T:SpectraUtils.Concerete.OneTimeCodeGenerator">
+            <summary>
+            Generates random numeric OTP codes.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Concerete.OneTimeCodeGenerator.GenerateNumericCode(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:SpectraUtils.Concerete.Pbkdf2PasswordHasher">
+            <summary>
+            Password hasher based on PBKDF2 (RFC 2898).
+            
+            Format: <c>PBKDF2$SHA256$iterations$saltBase64$hashBase64</c>
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Concerete.Pbkdf2PasswordHasher.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SpectraUtils.Concerete.Pbkdf2PasswordHasher"/> class.
+            </summary>
+            <param name="iterations">PBKDF2 iterations. Defaults to 210_000 (reasonable for modern systems).</param>
+            <param name="saltSize">Salt size in bytes. Defaults to 16.</param>
+            <param name="keySize">Derived key size in bytes. Defaults to 32 (256-bit).</param>
+        </member>
+        <member name="M:SpectraUtils.Concerete.Pbkdf2PasswordHasher.Hash(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:SpectraUtils.Concerete.Pbkdf2PasswordHasher.Verify(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:SpectraUtils.Concerete.Pbkdf2PasswordHasher.TryParseHash(System.String,System.Int32@,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Parses the persisted hash format.
+            </summary>
+        </member>
+        <member name="T:SpectraUtils.Concerete.SecureTokenGenerator">
+            <summary>
+            Generates cryptographically secure Base64Url tokens.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Concerete.SecureTokenGenerator.GenerateToken(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:SpectraUtils.Concerete.SecureTokenGenerator.Base64UrlEncode(System.Byte[])">
+            <summary>
+            Encodes bytes as Base64Url (RFC 4648) without padding.
+            </summary>
+        </member>
         <member name="T:SpectraUtils.Concrete.PasswordHelper">
             <summary>
             Provides methods for creating and hashing passwords with various requirements.
@@ -318,6 +409,72 @@
             Shuffles an array using the Fisher-Yates algorithm with cryptographically secure random numbers.
             </summary>
         </member>
+        <member name="T:SpectraUtils.Extensions.LinqExtensions">
+            <summary>
+            Provides useful LINQ-like extensions.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Extensions.LinqExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns <see langword="true"/> when the sequence is <see langword="null"/> or contains no elements.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="source">Sequence.</param>
+        </member>
+        <member name="M:SpectraUtils.Extensions.LinqExtensions.WhereIf``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{``0,System.Boolean})">
+            <summary>
+            Applies a <c>Where</c> filter only if <paramref name="condition"/> is <see langword="true"/>.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="source">Sequence.</param>
+            <param name="condition">Condition to apply the predicate.</param>
+            <param name="predicate">Filter predicate.</param>
+            <returns>Filtered sequence when condition is true; otherwise returns source.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when source or predicate is null.</exception>
+        </member>
+        <member name="M:SpectraUtils.Extensions.LinqExtensions.WhereIf``1(System.Linq.IQueryable{``0},System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Applies a <c>Where</c> filter only if <paramref name="condition"/> is <see langword="true"/>.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="source">Sequence.</param>
+            <param name="condition">Condition to apply the predicate.</param>
+            <param name="predicate">Filter predicate.</param>
+            <returns>Filtered sequence when condition is true; otherwise returns source.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when source or predicate is null.</exception>
+        </member>
+        <member name="M:SpectraUtils.Extensions.LinqExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Executes an action for each element in the sequence.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="source">Sequence.</param>
+            <param name="action">Action to execute.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when source or action is null.</exception>
+        </member>
+        <member name="M:SpectraUtils.Extensions.LinqExtensions.Tap``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Executes an action for each element in the sequence and returns the original sequence.
+            Useful for fluent pipelines.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <param name="source">Sequence.</param>
+            <param name="action">Action to execute.</param>
+            <returns>The original sequence.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when source or action is null.</exception>
+        </member>
+        <member name="M:SpectraUtils.Extensions.LinqExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Distinct by key selector for older target frameworks.
+            On .NET 6+ you can also use <c>Enumerable.DistinctBy</c>.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+            <typeparam name="TKey">Key type.</typeparam>
+            <param name="source">Sequence.</param>
+            <param name="keySelector">Key selector.</param>
+            <param name="comparer">Optional key comparer.</param>
+            <returns>Sequence with distinct keys.</returns>
+        </member>
         <member name="T:SpectraUtils.Extensions.ServiceCollectionExtensions">
             <summary>
             Extension methods for adding SpectraUtils services to the dependency injection container.
@@ -341,9 +498,54 @@
             <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> so that additional calls can be chained.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when services is null.</exception>
         </member>
+        <member name="T:SpectraUtils.Extensions.StringExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Extensions.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            Returns <see langword="true"/> when the string is <see langword="null"/> or empty.
+            </summary>
+            <param name="value">Input string.</param>
+        </member>
+        <member name="M:SpectraUtils.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Returns <see langword="true"/> when the string is <see langword="null"/>, empty, or whitespace.
+            </summary>
+            <param name="value">Input string.</param>
+        </member>
+        <member name="M:SpectraUtils.Extensions.StringExtensions.ReverseSafe(System.String)">
+            <summary>
+            Reverses a string in a safe and allocation-efficient manner.
+            </summary>
+            <param name="value">Input string.</param>
+            <returns>Reversed string, or <see langword="null"/> when input is <see langword="null"/>.</returns>
+            <remarks>
+            This method does not use unsafe code to keep the package compatible with restrictive environments.
+            It uses <see cref="M:System.String.Create(System.IFormatProvider,System.Runtime.CompilerServices.DefaultInterpolatedStringHandler@)"/> to allocate the result only once.
+            </remarks>
+        </member>
+        <member name="T:SpectraUtils.Extensions.StringExtensionsUnsafe">
+            <summary>
+            Provides unsafe string operations for callers that accept unsafe code.
+            </summary>
+        </member>
+        <member name="M:SpectraUtils.Extensions.StringExtensionsUnsafe.ReverseUnsafe(System.String)">
+            <summary>
+            Reverses the characters of the provided string using unsafe pointers.
+            </summary>
+            <param name="value">Input string to reverse. Cannot be null.</param>
+            <returns>A new string containing the characters of <paramref name="value"/> in reverse order.</returns>
+            <remarks>
+            This method uses unsafe code and fixed pointers for maximum performance. Use only when the
+            consumer accepts unsafe code. The project must allow unsafe blocks to compile this file.
+            For a safe alternative, use <see cref="M:SpectraUtils.Extensions.StringExtensions.ReverseSafe(System.String)"/>.
+            </remarks>
+        </member>
         <member name="T:SpectraUtils.ISpectraUtil">
             <summary>
-            Interface for the main utility class providing access to name editing and password management services.
+            Interface for the main utility class providing access to name editing, password management, and security services.
             </summary>
         </member>
         <member name="P:SpectraUtils.ISpectraUtil.NameEdit">
@@ -356,100 +558,24 @@
             Gets the password helper utility for creating and hashing passwords.
             </summary>
         </member>
-        <member name="T:SpectraUtils.Security.IOneTimeCodeGenerator">
+        <member name="P:SpectraUtils.ISpectraUtil.PasswordHasher">
             <summary>
-            Provides one-time-password (OTP) generation utilities.
+            Gets the low-level password hasher for hashing/verifying persisted passwords (PBKDF2).
             </summary>
         </member>
-        <member name="M:SpectraUtils.Security.IOneTimeCodeGenerator.GenerateNumericCode(System.Int32)">
+        <member name="P:SpectraUtils.ISpectraUtil.TokenGenerator">
             <summary>
-            Generates a numeric one-time code.
-            </summary>
-            <param name="digits">Number of digits. Default is 6.</param>
-            <returns>OTP code as string (zero-padded).</returns>
-        </member>
-        <member name="T:SpectraUtils.Security.IPasswordHasher">
-            <summary>
-            Provides password hashing and verification operations.
+            Gets the secure token generator for creating random Base64Url tokens.
             </summary>
         </member>
-        <member name="M:SpectraUtils.Security.IPasswordHasher.Hash(System.String)">
+        <member name="P:SpectraUtils.ISpectraUtil.OneTimeCodeGenerator">
             <summary>
-            Hashes the provided password.
-            </summary>
-            <param name="password">Plain text password.</param>
-            <returns>A persisted hash string containing all parameters required for verification.</returns>
-        </member>
-        <member name="M:SpectraUtils.Security.IPasswordHasher.Verify(System.String,System.String)">
-            <summary>
-            Verifies the password against the persisted hash.
-            </summary>
-            <param name="password">Plain text password.</param>
-            <param name="hash">Previously created hash string.</param>
-            <returns><see langword="true"/> when the password matches the hash; otherwise <see langword="false"/>.</returns>
-        </member>
-        <member name="T:SpectraUtils.Security.ISecureTokenGenerator">
-            <summary>
-            Generates cryptographically secure tokens.
-            </summary>
-        </member>
-        <member name="M:SpectraUtils.Security.ISecureTokenGenerator.GenerateToken(System.Int32)">
-            <summary>
-            Generates a Base64Url-encoded token.
-            </summary>
-            <param name="byteLength">Number of random bytes (before encoding). Default is 32 bytes.</param>
-            <returns>Base64Url token.</returns>
-        </member>
-        <member name="T:SpectraUtils.Security.OneTimeCodeGenerator">
-            <summary>
-            Generates random numeric OTP codes.
-            </summary>
-        </member>
-        <member name="M:SpectraUtils.Security.OneTimeCodeGenerator.GenerateNumericCode(System.Int32)">
-            <inheritdoc />
-        </member>
-        <member name="T:SpectraUtils.Security.Pbkdf2PasswordHasher">
-            <summary>
-            Password hasher based on PBKDF2 (RFC 2898).
-            
-            Format: <c>PBKDF2$SHA256$iterations$saltBase64$hashBase64</c>
-            </summary>
-        </member>
-        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.#ctor(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SpectraUtils.Security.Pbkdf2PasswordHasher"/> class.
-            </summary>
-            <param name="iterations">PBKDF2 iterations. Defaults to 210_000 (reasonable for modern systems).</param>
-            <param name="saltSize">Salt size in bytes. Defaults to 16.</param>
-            <param name="keySize">Derived key size in bytes. Defaults to 32 (256-bit).</param>
-        </member>
-        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.Hash(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.Verify(System.String,System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:SpectraUtils.Security.Pbkdf2PasswordHasher.TryParseHash(System.String,System.Int32@,System.Byte[]@,System.Byte[]@)">
-            <summary>
-            Parses the persisted hash format.
-            </summary>
-        </member>
-        <member name="T:SpectraUtils.Security.SecureTokenGenerator">
-            <summary>
-            Generates cryptographically secure Base64Url tokens.
-            </summary>
-        </member>
-        <member name="M:SpectraUtils.Security.SecureTokenGenerator.GenerateToken(System.Int32)">
-            <inheritdoc />
-        </member>
-        <member name="M:SpectraUtils.Security.SecureTokenGenerator.Base64UrlEncode(System.Byte[])">
-            <summary>
-            Encodes bytes as Base64Url (RFC 4648) without padding.
+            Gets the one-time code generator for numeric OTPs.
             </summary>
         </member>
         <member name="T:SpectraUtils.SpectraUtil">
             <summary>
-            Provides utility methods for name editing and password management.
+            Provides utility methods for name editing, password management and security services.
             This class can be registered as a singleton in dependency injection containers.
             </summary>
         </member>
@@ -463,19 +589,31 @@
             Gets the password helper utility for creating and hashing passwords.
             </summary>
         </member>
+        <member name="P:SpectraUtils.SpectraUtil.PasswordHasher">
+            <summary>
+            Gets the low-level password hasher for hashing/verifying persisted passwords (PBKDF2).
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.SpectraUtil.TokenGenerator">
+            <summary>
+            Gets the secure token generator for creating random Base64Url tokens.
+            </summary>
+        </member>
+        <member name="P:SpectraUtils.SpectraUtil.OneTimeCodeGenerator">
+            <summary>
+            Gets the one-time code generator for numeric OTPs.
+            </summary>
+        </member>
         <member name="M:SpectraUtils.SpectraUtil.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:SpectraUtils.SpectraUtil"/> class with default implementations.
             </summary>
         </member>
-        <member name="M:SpectraUtils.SpectraUtil.#ctor(SpectraUtils.Abstract.INameEdit,SpectraUtils.Abstract.IPasswordHelper)">
+        <member name="M:SpectraUtils.SpectraUtil.#ctor(SpectraUtils.Abstract.INameEdit,SpectraUtils.Abstract.IPasswordHelper,SpectraUtils.Abstract.IPasswordHasher,SpectraUtils.Abstract.ISecureTokenGenerator,SpectraUtils.Abstract.IOneTimeCodeGenerator)">
             <summary>
             Initializes a new instance of the <see cref="T:SpectraUtils.SpectraUtil"/> class with custom implementations.
             Useful for dependency injection scenarios.
             </summary>
-            <param name="nameEdit">The name editing utility instance.</param>
-            <param name="passwordHelper">The password helper utility instance.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown when any parameter is null.</exception>
         </member>
         <member name="T:SpectraUtils.Validation.IbanValidator">
             <summary>

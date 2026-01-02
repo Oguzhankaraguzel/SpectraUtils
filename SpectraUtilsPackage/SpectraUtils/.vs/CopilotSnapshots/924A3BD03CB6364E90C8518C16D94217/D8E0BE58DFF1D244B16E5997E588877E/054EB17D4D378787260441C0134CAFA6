@@ -1,0 +1,44 @@
+﻿namespace SpectraUtils.Extensions;
+
+/// <summary>
+/// Provides unsafe string operations for callers that accept unsafe code.
+/// </summary>
+public static class StringExtensionsUnsafe
+{
+    /// <summary>
+    /// Reverses the characters of the provided string using unsafe pointers.
+    /// </summary>
+    /// <param name="value">Input string to reverse. Cannot be null.</param>
+    /// <returns>A new string containing the characters of <paramref name="value"/> in reverse order.</returns>
+    /// <remarks>
+    /// This method uses unsafe code and fixed pointers for maximum performance. Use only when the
+    /// consumer accepts unsafe code. The project must allow unsafe blocks to compile this file.
+    /// For a safe alternative, use <see cref="StringExtensions.ReverseSafe(string)"/>.
+    /// </remarks>
+    public static unsafe string ReverseUnsafe(this string value)
+    {
+        if (value is null)
+            throw new ArgumentNullException(nameof(value));
+
+        int len = value.Length;
+        if (len <= 1)
+            return value;
+
+        // Allocate result string filled with '\0' characters; we'll overwrite them.
+        string result = new string('\0', len);
+
+        fixed (char* pSrc = value)
+        fixed (char* pDst = result)
+        {
+            char* src = pSrc;
+            char* dst = pDst;
+
+            for (int i = 0; i < len; i++)
+            {
+                dst[i] = src[len - 1 - i];
+            }
+        }
+
+        return result;
+    }
+}

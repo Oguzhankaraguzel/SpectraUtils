@@ -3,60 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\validation\\ibanvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\validation\\ibanvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\spectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\spectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\attributes\\validationattributes\\ibanvalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\attributes\\validationattributes\\ibanvalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\ispectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\ispectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\spectrautils.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\spectrautils.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\attributes\\validationattributes\\tcidvalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\attributes\\validationattributes\\tcidvalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\validation\\turkishtaxnumbervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\validation\\turkishtaxnumbervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\attributes\\validationattributes\\turkishtaxnumbervalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\attributes\\validationattributes\\turkishtaxnumbervalidationattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\security\\ipasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\security\\ipasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\security\\pbkdf2passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\security\\pbkdf2passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\security\\isecuretokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\security\\isecuretokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\security\\securetokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\security\\securetokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\security\\ionetimecodegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\security\\ionetimecodegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\security\\onetimecodegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\security\\onetimecodegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\linqextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\linqextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\stringextensions.unsafe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\stringextensions.unsafe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,184 +42,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:23:44.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OneTimeCodeGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\OneTimeCodeGenerator.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Security\\OneTimeCodeGenerator.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\OneTimeCodeGenerator.cs",
-              "RelativeToolTip": "SpectraUtils\\Security\\OneTimeCodeGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:23:36.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IOneTimeCodeGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\IOneTimeCodeGenerator.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Security\\IOneTimeCodeGenerator.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\IOneTimeCodeGenerator.cs",
-              "RelativeToolTip": "SpectraUtils\\Security\\IOneTimeCodeGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:23:26.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SecureTokenGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\SecureTokenGenerator.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Security\\SecureTokenGenerator.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\SecureTokenGenerator.cs",
-              "RelativeToolTip": "SpectraUtils\\Security\\SecureTokenGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:23:22.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ISecureTokenGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\ISecureTokenGenerator.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Security\\ISecureTokenGenerator.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\ISecureTokenGenerator.cs",
-              "RelativeToolTip": "SpectraUtils\\Security\\ISecureTokenGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:23:15.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Pbkdf2PasswordHasher.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\Pbkdf2PasswordHasher.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Security\\Pbkdf2PasswordHasher.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\Pbkdf2PasswordHasher.cs",
-              "RelativeToolTip": "SpectraUtils\\Security\\Pbkdf2PasswordHasher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:23:10.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IPasswordHasher.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\IPasswordHasher.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Security\\IPasswordHasher.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Security\\IPasswordHasher.cs",
-              "RelativeToolTip": "SpectraUtils\\Security\\IPasswordHasher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:22:57.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TurkishTaxNumberValidationAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\TurkishTaxNumberValidationAttribute.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Attributes\\ValidationAttributes\\TurkishTaxNumberValidationAttribute.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\TurkishTaxNumberValidationAttribute.cs",
-              "RelativeToolTip": "SpectraUtils\\Attributes\\ValidationAttributes\\TurkishTaxNumberValidationAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:22:52.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "TurkishTaxNumberValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Validation\\TurkishTaxNumberValidator.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Validation\\TurkishTaxNumberValidator.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Validation\\TurkishTaxNumberValidator.cs",
-              "RelativeToolTip": "SpectraUtils\\Validation\\TurkishTaxNumberValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
+              "Title": "StringExtensions.Unsafe.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
+              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:22:46.582Z",
+              "WhenOpened": "2026-01-02T20:48:27.908Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IbanValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Validation\\IbanValidator.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Validation\\IbanValidator.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Validation\\IbanValidator.cs",
-              "RelativeToolTip": "SpectraUtils\\Validation\\IbanValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "Title": "SpectraUtil.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtil.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\SpectraUtil.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtil.cs",
+              "RelativeToolTip": "SpectraUtils\\SpectraUtil.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:22:14.305Z",
+              "WhenOpened": "2026-01-02T20:45:19.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IbanValidationAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\IbanValidationAttribute.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Attributes\\ValidationAttributes\\IbanValidationAttribute.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\IbanValidationAttribute.cs",
-              "RelativeToolTip": "SpectraUtils\\Attributes\\ValidationAttributes\\IbanValidationAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Title": "ISpectraUtil.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\ISpectraUtil.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\ISpectraUtil.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\ISpectraUtil.cs",
+              "RelativeToolTip": "SpectraUtils\\ISpectraUtil.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:22:02.048Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\README.md",
-              "RelativeDocumentMoniker": "SpectraUtils\\README.md",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\README.md",
-              "RelativeToolTip": "SpectraUtils\\README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-01-02T20:20:02.199Z",
+              "WhenOpened": "2026-01-02T20:44:52.855Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SpectraUtils.csproj.Backup.tmp",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj.Backup.tmp",
-              "RelativeDocumentMoniker": "SpectraUtils\\SpectraUtils.csproj.Backup.tmp",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtils.csproj.Backup.tmp",
-              "RelativeToolTip": "SpectraUtils\\SpectraUtils.csproj.Backup.tmp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000333|",
-              "WhenOpened": "2026-01-02T20:19:52.429Z",
-              "EditorCaption": ""
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T20:33:10.904Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "TCIDValidationAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
-              "RelativeToolTip": "SpectraUtils\\Attributes\\ValidationAttributes\\TCIDValidationAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "LinqExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\LinqExtensions.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\LinqExtensions.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\LinqExtensions.cs",
+              "RelativeToolTip": "SpectraUtils\\Extensions\\LinqExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:18:42.008Z",
+              "WhenOpened": "2026-01-02T20:32:33.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\StringExtensions.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
+              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T20:32:10.024Z",
               "EditorCaption": ""
             }
           ]
