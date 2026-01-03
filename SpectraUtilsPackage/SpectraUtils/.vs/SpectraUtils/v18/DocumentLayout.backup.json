@@ -9,6 +9,16 @@
     {
       "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Oguzh\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-470663547\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\LICENSE||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LICENSE||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Oguzh\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-256915273\\SpectraUtils.csproj||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +28,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,12 +36,48 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SpectraUtils.csproj",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-256915273\\SpectraUtils.csproj",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-256915273\\SpectraUtils.csproj",
+              "ToolTip": "C:\\Users\\Oguzh\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-256915273\\SpectraUtils.csproj",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-256915273\\SpectraUtils.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-03T23:46:43.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LICENSE",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\LICENSE",
+              "RelativeDocumentMoniker": "LICENSE",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\LICENSE",
+              "RelativeToolTip": "LICENSE",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-01-03T23:46:43.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-470663547\\README.md",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-470663547\\README.md",
+              "ToolTip": "C:\\Users\\Oguzh\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-470663547\\README.md",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-470663547\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-01-03T23:46:43.454Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "StringExtensions.cs",
               "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
               "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\StringExtensions.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs*",
-              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.cs*",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
+              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-02T23:12:16.1Z",
@@ -47,8 +93,7 @@
               "RelativeToolTip": "README.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-01-02T23:09:21.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-02T23:09:21.25Z"
             }
           ]
         }

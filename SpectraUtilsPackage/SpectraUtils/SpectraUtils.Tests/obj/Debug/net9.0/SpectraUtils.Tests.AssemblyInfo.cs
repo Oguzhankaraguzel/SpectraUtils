@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpectraUtils.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e72bb525937be7b9c9f03e1b31ee12e7dbf9563")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+408274cac4ecff3d97d0238d34418a71a8f0a394")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpectraUtils.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpectraUtils.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

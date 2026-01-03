@@ -9,11 +9,11 @@
 
     <Title>Spectra Utils</Title>
     <Version>2.0.0</Version>
-    <Authors>O�uzhan KARAGUZEL</Authors>
-    <Company>O�uzhan KARAGUZEL</Company>
+    <Authors>Oğuzhan KARAGüZEL</Authors>
+    <Company>Oğuzhan KARAGüZEL</Company>
     <Product>Spectra Utils</Product>
     <Description>A comprehensive utility library for validations, name formatting, and secure password generation in .NET applications. Features include Turkish ID validation, minimum age validation, file extension validation, Turkish-aware name formatting, and cryptographically secure password generation.</Description>
-    <Copyright>Copyright 2024</Copyright>
+    <Copyright>Copyright 2025</Copyright>
 
     <PackageProjectUrl>https://www.oguzhankaraguzel.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Oguzhankaraguzel/SpectraUtils</RepositoryUrl>
@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\README.md" Pack="true" PackagePath="\" />
     <None Include="tools.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
