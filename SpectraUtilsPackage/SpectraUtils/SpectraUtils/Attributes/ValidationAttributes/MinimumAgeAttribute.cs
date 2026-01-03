@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace SpectraUtils.Attributes.ValidationAttributes;
 
@@ -38,6 +39,16 @@ public class MinimumAgeAttribute : ValidationAttribute
     {
         if (value == null)
         {
+            // Check if this property is nullable - if so, allow null
+            if (validationContext.MemberName != null)
+            {
+                var property = validationContext.ObjectType?.GetProperty(validationContext.MemberName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+                if (property != null && IsNullableType(property.PropertyType))
+                {
+                    return ValidationResult.Success!;
+                }
+            }
+            
             return new ValidationResult(GetErrorMessage());
         }
 
@@ -75,12 +86,22 @@ public class MinimumAgeAttribute : ValidationAttribute
         int age = today.Year - birthDate.Year;
 
         // Adjust if birthday hasn't occurred this year
-        if (birthDate > today.AddYears(-age))
+        if (birthDate.AddYears(age) > today)
         {
             age--;
         }
 
         return age;
+    }
+
+    private static bool IsNullableType(Type type)
+    {
+        // Check if it's a nullable value type (Nullable<T>)
+        if (Nullable.GetUnderlyingType(type) != null)
+            return true;
+
+        // Check if it's a reference type (which can be null)
+        return !type.IsValueType;
     }
 
     private string GetErrorMessage()

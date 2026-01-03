@@ -1,0 +1,130 @@
+﻿# SpectraUtils
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![NuGet](https://img.shields.io/nuget/v/SpectraUtils.svg)](https://www.nuget.org/packages/SpectraUtils/)
+[![.NET 9.0](https://img.shields.io/badge/.NET-9.0-512BD4)](https://dotnet.microsoft.com/)
+
+SpectraUtils is a small but opinionated toolbox I keep using across projects: validation attributes, Turkish-aware name formatting, and a couple of security-focused helpers (password hashing, tokens, OTP codes).
+
+I originally built this package while learning how to publish my first NuGet package. Since then, I’ve kept evolving it as I grew into a solid mid-level developer — with more focus on clean APIs, safety, and real-world usage.
+
+If you know me from YouTube (I’m Oğuzhan Karagüzel and I share C# education content), this repository is basically the “utilities folder” I decided to maintain properly.
+
+## Features
+
+### Security services
+
+- PBKDF2 password hashing (`Pbkdf2PasswordHasher`)
+- Base64Url secure token generation (`SecureTokenGenerator`)
+- Numeric one-time codes / OTP (`OneTimeCodeGenerator`)
+- Password creation helper (`PasswordHelper`)
+
+### Validation attributes
+
+- Minimum age validation for `DateTime` and `DateOnly` (`MinimumAgeAttribute`)
+- Turkish National ID validation (`TCIDValidationAttribute`)
+- Turkish tax number (VKN) validation (`TurkishTaxNumberValidationAttribute`)
+- IBAN validation (`IbanValidationAttribute`)
+- Allowed file extensions + max size validation for `IFormFile` and file paths (`AllowedExtensionsAttribute`)
+
+### Extensions & utilities
+
+- String extensions (`IsNullOrEmpty`, `IsNullOrWhiteSpace`, `ReverseSafe`)
+- DI registration (`AddSpectraUtils`, `AddSpectraUtilsScoped`)
+
+---
+
+## Targets
+
+- .NET 9 (`net9.0`)
+
+---
+
+## Installation
+
+```bash
+dotnet add package SpectraUtils
+```
+
+---
+
+## Dependency Injection (recommended)
+
+```csharp
+using SpectraUtils.Extensions;
+
+builder.Services.AddSpectraUtils();
+// or
+builder.Services.AddSpectraUtilsScoped();
+```
+
+Then consume the facade:
+
+```csharp
+using SpectraUtils;
+
+ISpectraUtil util = serviceProvider.GetRequiredService<ISpectraUtil>();
+```
+
+---
+
+## Basic usage
+
+### Name formatting
+
+```csharp
+var util = serviceProvider.GetRequiredService<ISpectraUtil>();
+
+string name = util.NameEdit.NameCorrection("oĞuzHan");
+string sirName = util.NameEdit.SirNameCorrection("karagüzel");
+
+// "Oğuzhan"
+// "KARAGÜZEL"
+```
+
+### Password creation
+
+```csharp
+var util = serviceProvider.GetRequiredService<ISpectraUtil>();
+
+string password = util.PasswordHelper.CreatePassword(
+    passwordLength: 8,
+    includeLowercaseLetter: true,
+    includeNumber: true,
+    includeUppercaseLetter: true,
+    includeSpecialCharacter: true);
+
+string standardPassword = util.PasswordHelper.CreateStardartPassword;
+```
+
+### Validation attributes
+
+```csharp
+using SpectraUtils.Attributes.ValidationAttributes;
+
+public sealed class RegisterRequest
+{
+    [MinimumAge(18)]
+    public DateTime BirthDate { get; set; }
+
+    [TCIDValidation]
+    public string Identity { get; set; } = string.Empty;
+
+    [AllowedExtensions(2 * 1024 * 1024, ".jpg", ".jpeg", ".png", ".pdf")]
+    public IFormFile? File { get; set; }
+}
+```
+
+---
+
+## License
+
+MIT. See `LICENSE`.
+
+---
+
+## Links
+
+- GitHub: https://github.com/Oguzhankaraguzel/SpectraUtils
+- NuGet: https://www.nuget.org/packages/SpectraUtils/
+- Website: https://www.oguzhankaraguzel.com/

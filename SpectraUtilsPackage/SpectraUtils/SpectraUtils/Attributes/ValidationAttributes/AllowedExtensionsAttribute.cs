@@ -42,7 +42,7 @@ public class AllowedExtensionsAttribute : ValidationAttribute
         _extensions = new HashSet<string>(
             extensions.Select(NormalizeExtension),
             StringComparer.OrdinalIgnoreCase);
-        
+
         _maxFileSizeInBytes = maxFileSizeInBytes;
     }
 

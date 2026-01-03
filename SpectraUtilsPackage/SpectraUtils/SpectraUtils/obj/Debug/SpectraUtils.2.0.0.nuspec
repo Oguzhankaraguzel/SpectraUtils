@@ -4,7 +4,7 @@
     <id>SpectraUtils</id>
     <version>2.0.0</version>
     <title>Spectra Utils</title>
-    <authors>O�uzhan KARAG�ZEL</authors>
+    <authors>O�uzhan KARAGUZEL</authors>
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <icon>tools.png</icon>
@@ -14,7 +14,7 @@
     <releaseNotes>v2.0.0: Major performance improvements, cryptographically secure password generation, Turkish character support for names, DateOnly support for MinimumAgeAttribute, dependency injection support, and HashSet-based extension validation.</releaseNotes>
     <copyright>Copyright 2024</copyright>
     <tags>validation correction password generator turkish tcid name-formatting security aspnetcore</tags>
-    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" commit="e46cb04565427cf60ee40fee05b1d801716f7e8d" />
+    <repository type="git" url="https://github.com/Oguzhankaraguzel/SpectraUtils" commit="0e72bb525937be7b9c9f03e1b31ee12e7dbf9563" />
     <dependencies>
       <group targetFramework="net9.0">
         <dependency id="Microsoft.AspNetCore.Http.Features" version="5.0.17" exclude="Build,Analyzers" />
@@ -25,7 +25,7 @@
   <files>
     <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net9.0\SpectraUtils.dll" target="lib\net9.0\SpectraUtils.dll" />
     <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\bin\Debug\net9.0\SpectraUtils.xml" target="lib\net9.0\SpectraUtils.xml" />
-    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\README.md" target="\README.md" />
+    <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\README.md" target="\README.md" />
     <file src="C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils\tools.png" target="\tools.png" />
   </files>
 </package>

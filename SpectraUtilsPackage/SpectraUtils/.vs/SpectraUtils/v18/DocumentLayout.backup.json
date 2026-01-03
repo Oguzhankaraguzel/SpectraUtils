@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\spectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\spectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\ispectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\ispectrautil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\linqextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\linqextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\spectrautils\\extensions\\stringextensions.unsafe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:spectrautils\\extensions\\stringextensions.unsafe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|c:\\users\\oguzh\\onedrive\\masa\u00FCst\u00FC\\spectrautils\\spectrautilspackage\\spectrautils\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{22C7E90A-8114-4F27-B084-8D0E21B27490}|SpectraUtils\\SpectraUtils.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,78 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StringExtensions.Unsafe.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
-              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.Unsafe.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:48:27.908Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SpectraUtil.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtil.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\SpectraUtil.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\SpectraUtil.cs",
-              "RelativeToolTip": "SpectraUtils\\SpectraUtil.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwFUAAAAAAAAAAAAAAA==",
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\StringExtensions.cs",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs*",
+              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:45:19.576Z",
+              "WhenOpened": "2026-01-02T23:12:16.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ISpectraUtil.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\ISpectraUtil.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\ISpectraUtil.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\ISpectraUtil.cs",
-              "RelativeToolTip": "SpectraUtils\\ISpectraUtil.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:44:52.855Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "SpectraUtils\\Extensions\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:33:10.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LinqExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\LinqExtensions.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\LinqExtensions.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\LinqExtensions.cs",
-              "RelativeToolTip": "SpectraUtils\\Extensions\\LinqExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:32:33.124Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StringExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
-              "RelativeDocumentMoniker": "SpectraUtils\\Extensions\\StringExtensions.cs",
-              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\SpectraUtils\\Extensions\\StringExtensions.cs",
-              "RelativeToolTip": "SpectraUtils\\Extensions\\StringExtensions.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwCAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-02T20:32:10.024Z",
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Oguzh\\OneDrive\\Masa\u00FCst\u00FC\\SpectraUtils\\SpectraUtilsPackage\\SpectraUtils\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-01-02T23:09:21.25Z",
               "EditorCaption": ""
             }
           ]

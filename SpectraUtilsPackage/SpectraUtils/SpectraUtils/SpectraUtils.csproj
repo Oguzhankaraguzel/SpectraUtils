@@ -4,39 +4,42 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>13.0</LangVersion>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
     <Title>Spectra Utils</Title>
     <Version>2.0.0</Version>
-    <Authors>O�uzhan KARAG�ZEL</Authors>
-    <Company>O�uzhan KARAG�ZEL</Company>
+    <Authors>O�uzhan KARAGUZEL</Authors>
+    <Company>O�uzhan KARAGUZEL</Company>
     <Product>Spectra Utils</Product>
     <Description>A comprehensive utility library for validations, name formatting, and secure password generation in .NET applications. Features include Turkish ID validation, minimum age validation, file extension validation, Turkish-aware name formatting, and cryptographically secure password generation.</Description>
     <Copyright>Copyright 2024</Copyright>
+
     <PackageProjectUrl>https://www.oguzhankaraguzel.com/</PackageProjectUrl>
-    <PackageIcon>tools.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Oguzhankaraguzel/SpectraUtils</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+
     <PackageTags>validation;correction;password;generator;turkish;tcid;name-formatting;security;aspnetcore</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageIcon>tools.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
     <PackageReleaseNotes>v2.0.0: Major performance improvements, cryptographically secure password generation, Turkish character support for names, DateOnly support for MinimumAgeAttribute, dependency injection support, and HashSet-based extension validation.</PackageReleaseNotes>
+
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="tools.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="tools.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

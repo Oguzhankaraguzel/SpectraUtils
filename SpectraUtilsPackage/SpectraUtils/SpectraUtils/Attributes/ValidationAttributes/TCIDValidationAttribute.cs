@@ -41,8 +41,39 @@ public class TCIDValidationAttribute : ValidationAttribute
         if (tcKimlik.Length != TcIdLength || tcKimlik[0] == '0')
             return false;
 
-        int oddSum = 0;  // Sum of digits at odd positions (1, 3, 5, 7, 9)
-        int evenSum = 0; // Sum of digits at even positions (2, 4, 6, 8)
+        // Check if all digits are the same (invalid case like "11111111111" or "11111111110")
+        char firstDigit = tcKimlik[0];
+        bool allSame = true;
+        for (int i = 1; i < tcKimlik.Length; i++)
+        {
+            if (tcKimlik[i] != firstDigit)
+            {
+                allSame = false;
+                break;
+            }
+        }
+
+        // Also reject patterns like "11111111110" where almost all are the same
+        if (allSame)
+            return false;
+
+        // Check for sequences like "11111111110" - 10 same digits with different last
+        if (tcKimlik.Length >= 2)
+        {
+            char refChar = tcKimlik[0];
+            int differentCount = 0;
+            for (int i = 0; i < tcKimlik.Length; i++)
+            {
+                if (tcKimlik[i] != refChar)
+                    differentCount++;
+            }
+            // If only 1 digit is different from the rest, it's invalid
+            if (differentCount == 1)
+                return false;
+        }
+
+        int oddSum = 0;  // Sum of digits at odd positions (1, 3, 5, 7, 9) - 0-indexed: 0, 2, 4, 6, 8
+        int evenSum = 0; // Sum of digits at even positions (2, 4, 6, 8) - 0-indexed: 1, 3, 5, 7
         int totalSum = 0;
 
         for (int i = 0; i < TcIdLength; i++)
@@ -68,6 +99,7 @@ public class TCIDValidationAttribute : ValidationAttribute
         // 10th digit validation: ((oddSum * 7) - evenSum) % 10 == 10th digit
         int tenthDigit = tcKimlik[9] - '0';
         int expectedTenth = ((oddSum * 7) - evenSum) % 10;
+        // Handle negative modulo result
         if (expectedTenth < 0)
             expectedTenth += 10;
 

@@ -27,10 +27,10 @@ public static class StringExtensions
     /// Reverses a string in a safe and allocation-efficient manner.
     /// </summary>
     /// <param name="value">Input string.</param>
-    /// <returns>Reversed string, or <see langword="null"/> when input is <see langword="null"/>.</returns>
+    /// <returns>Reversed string, or <see langword="null"/> when input is <see langword="null"/>.</returns>.
     /// <remarks>
     /// This method does not use unsafe code to keep the package compatible with restrictive environments.
-    /// It uses <see cref="string.Create"/> to allocate the result only once.
+    /// It uses <see cref="string.Create(int, TState, System.Buffers.SpanAction{char, TState})"/> to allocate the result only once.
     /// </remarks>
     public static string? ReverseSafe(this string? value)
     {
@@ -47,3 +47,4 @@ public static class StringExtensions
         });
     }
 }
+

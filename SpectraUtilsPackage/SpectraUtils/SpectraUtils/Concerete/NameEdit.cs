@@ -158,12 +158,18 @@ public class NameEdit : INameEdit
         // Handle Turkish special characters explicitly
         var turkishMapping = new Dictionary<char, char>
         {
-            ['ý'] = 'i', ['Ý'] = 'I',
-            ['ð'] = 'g', ['Ð'] = 'G',
-            ['ü'] = 'u', ['Ü'] = 'U',
-            ['þ'] = 's', ['Þ'] = 'S',
-            ['ö'] = 'o', ['Ö'] = 'O',
-            ['ç'] = 'c', ['Ç'] = 'C'
+            ['ý'] = 'i',
+            ['Ý'] = 'I',
+            ['ð'] = 'g',
+            ['Ð'] = 'G',
+            ['ü'] = 'u',
+            ['Ü'] = 'U',
+            ['þ'] = 's',
+            ['Þ'] = 'S',
+            ['ö'] = 'o',
+            ['Ö'] = 'O',
+            ['ç'] = 'c',
+            ['Ç'] = 'C'
         };
 
         var sb = new StringBuilder(input.Length);

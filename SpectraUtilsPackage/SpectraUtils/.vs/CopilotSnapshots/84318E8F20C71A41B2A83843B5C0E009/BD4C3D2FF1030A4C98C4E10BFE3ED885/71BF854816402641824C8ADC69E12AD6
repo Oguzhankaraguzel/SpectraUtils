@@ -1,0 +1,90 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SpectraUtils.Attributes.ValidationAttributes;
+
+/// <summary>
+/// Validation attribute to enforce a minimum age requirement based on birth date.
+/// </summary>
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
+public class MinimumAgeAttribute : ValidationAttribute
+{
+    private readonly int _minimumAge;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MinimumAgeAttribute"/> class.
+    /// </summary>
+    /// <param name="minimumAge">The minimum age required.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when minimum age is negative.</exception>
+    public MinimumAgeAttribute(int minimumAge)
+    {
+        if (minimumAge < 0)
+            throw new ArgumentOutOfRangeException(nameof(minimumAge), "Minimum age cannot be negative.");
+
+        _minimumAge = minimumAge;
+    }
+
+    /// <summary>
+    /// Gets the minimum age requirement.
+    /// </summary>
+    public int MinimumAge => _minimumAge;
+
+    /// <summary>
+    /// Validates whether the specified birth date meets the minimum age requirement.
+    /// </summary>
+    /// <param name="value">The birth date value to validate. Supports <see cref="DateTime"/> and <see cref="DateOnly"/>.</param>
+    /// <param name="validationContext">The context information about the validation operation.</param>
+    /// <returns>A <see cref="ValidationResult"/> indicating whether validation succeeded.</returns>
+    protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+    {
+        if (value == null)
+        {
+            return new ValidationResult(GetErrorMessage());
+        }
+
+        DateOnly birthDate;
+
+        if (value is DateTime dateTime)
+        {
+            birthDate = DateOnly.FromDateTime(dateTime);
+        }
+        else if (value is DateOnly dateOnly)
+        {
+            birthDate = dateOnly;
+        }
+        else
+        {
+            return new ValidationResult("Invalid date format. Expected DateTime or DateOnly.");
+        }
+
+        DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+        int age = CalculateAge(birthDate, today);
+
+        if (age >= _minimumAge)
+        {
+            return ValidationResult.Success!;
+        }
+
+        return new ValidationResult(GetErrorMessage());
+    }
+
+    /// <summary>
+    /// Calculates age accurately considering leap years.
+    /// </summary>
+    private static int CalculateAge(DateOnly birthDate, DateOnly today)
+    {
+        int age = today.Year - birthDate.Year;
+
+        // Adjust if birthday hasn't occurred this year
+        if (birthDate.AddYears(age) > today)
+        {
+            age--;
+        }
+
+        return age;
+    }
+
+    private string GetErrorMessage()
+    {
+        return ErrorMessage ?? $"Birth date must be {_minimumAge} years or older.";
+    }
+}

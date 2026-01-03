@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("O�uzhan KARAG�ZEL")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("O�uzhan KARAGUZEL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright 2024")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(@"A comprehensive utility library for validations, name formatting, and secure password generation in .NET applications. Features include Turkish ID validation, minimum age validation, file extension validation, Turkish-aware name formatting, and cryptographically secure password generation.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0+e46cb04565427cf60ee40fee05b1d801716f7e8d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0+0e72bb525937be7b9c9f03e1b31ee12e7dbf9563")]
 [assembly: System.Reflection.AssemblyProductAttribute("Spectra Utils")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpectraUtils")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]

@@ -1,0 +1,7 @@
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\bin\Release\net9.0\.msCoverageSourceRootsMapping_SpectraUtils.Tests
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\obj\Release\net9.0\SpectraUtils.Tests.csproj.AssemblyReference.cache
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\obj\Release\net9.0\SpectraUtils.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\obj\Release\net9.0\SpectraUtils.Tests.AssemblyInfoInputs.cache
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\obj\Release\net9.0\SpectraUtils.Tests.AssemblyInfo.cs
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\obj\Release\net9.0\SpectraUtils.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Oguzh\OneDrive\Masaüstü\SpectraUtils\SpectraUtilsPackage\SpectraUtils\SpectraUtils.Tests\obj\Release\net9.0\SpectraUtils.Tests.sourcelink.json
