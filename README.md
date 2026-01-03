@@ -1,51 +1,490 @@
-# Dependency
-This library was created by .Net6.0
+# SpectraUtils
 
-## Description
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![NuGet](https://img.shields.io/nuget/v/SpectraUtils.svg)](https://www.nuget.org/packages/SpectraUtils/)
+[![.NET 9.0](https://img.shields.io/badge/.NET-9.0-512BD4)](https://dotnet.microsoft.com/)
 
-The package made to step into the world of NuGet as a jr. software developer.
+**SpectraUtils** is a comprehensive, production-ready utility library for .NET 9 applications, providing robust validation, name formatting, secure password generation, and security services. Designed with performance and security as core priorities, it supports Turkish-specific features and integrates seamlessly with ASP.NET Core dependency injection.
 
-## Use
+## ?? Features
 
-```Csharp
-		string name = "oÄžuzHan";
-        name = helper.NameEdit.NameCorrection(name);
-            
-        string sirName = helper.NameEdit.SirNameCorrection("karagÃ¼zel");
+### ?? **Security Services**
 
-        string normalizedName = helper.NameEdit.StandardizeCharacters("oÄŸuzhan");
+- **PBKDF2 Password Hashing**: Industry-standard password hashing with configurable iterations, salt size, and key size
+- **Secure Token Generation**: Cryptographically secure Base64Url tokens for authentication and security tokens
+- **One-Time Code Generator**: Random numeric OTP generation for 2FA and verification flows
+- **Password Helper**: Flexible password creation with configurable character requirements
 
-        string userName = helper.NameEdit.CreateUserName("oÄŸuzhan");
+### ? **Validation Attributes**
 
-        string password = helper.PasswordHelper.CreatePassword(
-            passwordLength:8,
-            includeLowercaseLetter:true,
-            includeNumber:true,
-            includeUppercaseLetter:true,
-            includeSpecialCharacter:true
-            );
+- **MinimumAgeAttribute**: Validates minimum age requirements (DateTime & DateOnly support)
+- **TCIDValidationAttribute**: Turkish National ID validation with checksum verification
+- **TurkishTaxNumberValidationAttribute**: Turkish Tax Identification Number (VKN) validation
+- **IbanValidationAttribute**: International Bank Account Number validation
+- **AllowedExtensionsAttribute**: File extension and size validation
 
-        string standartPassword = helper.PasswordHelper.CreateStardartPassword;
-            
-        [MinimumAge(18)]
-        public DateTime birthDate { get; set; }
-        [TCIDValidation] // Id number validation for TÃ¼rkiye 
-        public string Identity { get; set; }
-        [AllowedExtensions(extensions: new string[] { ".jpg", ".jpeg", ".png", ".pdf" }, maxFileSizeInBytes:1024*1024*2)]
-        public string File { get; set; }
+### ?? **String & Name Processing**
+
+- **NameEdit Service**: Turkish-aware name correction and formatting
+  - `NameCorrection()`: Capitalize names correctly
+  - `SirNameCorrection()`: Format surnames in uppercase
+  - `NameAndSirNameCorrection()`: Combined formatting
+  - `RemoveSpecialCharacters()`: Clean unwanted characters
+
+### ??? **Validators**
+
+- **IbanValidator**: MOD-97 algorithm-based IBAN validation
+- **TurkishTaxNumberValidator**: VKN checksum validation
+
+### ?? **Extension Methods**
+
+- **LINQ Extensions**: Enhanced query capabilities
+- **String Extensions**: String manipulation utilities
+- **Service Collection Extensions**: Easy DI integration
+
+---
+
+## ?? Installation
+
+### NuGet Package Manager
+```bash
+Install-Package SpectraUtils
 ```
 
-## Result
+### .NET CLI
+```bash
+dotnet add package SpectraUtils
+```
 
-OÄŸuzhan
-KARAGÃœZEL
-oguzhan
-oguzhan1593
-&W3Juv}r (random password)
-M{3jq8N3 (random password)
+---
 
-Validation error message!
+## ?? Quick Start
 
-#
+### Dependency Injection Setup
 
-You can check it on [github](https://github.com/Oguzhankaraguzel/SpectraUtils)
+```csharp
+using SpectraUtils.Extensions;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add SpectraUtils services
+builder.Services.AddSpectraUtils();
+
+var app = builder.Build();
+```
+
+---
+
+## ?? Usage Examples
+
+### ?? Password Security
+
+```csharp
+IPasswordHelper passwordHelper = serviceProvider.GetRequiredService<IPasswordHelper>();
+
+// Standard 8-character password
+string password = passwordHelper.CreateStardartPassword;
+
+// Custom password
+string customPassword = passwordHelper.CreatePassword(
+    passwordLength: 16,
+    includeUppercaseLetter: true,
+    includeLowercaseLetter: true,
+    includeNumber: true,
+    includeSpecialCharacter: true
+);
+```
+
+### ?? Password Hashing
+
+```csharp
+IPasswordHasher hasher = serviceProvider.GetRequiredService<IPasswordHasher>();
+
+// Hash a password
+string hash = hasher.Hash("UserPassword123!");
+
+// Verify a password
+bool isValid = hasher.Verify("UserPassword123!", hash);
+
+// Format: PBKDF2$SHA256$iterations$saltBase64$hashBase64
+```
+
+### ?? Security Tokens
+
+```csharp
+ISecureTokenGenerator tokenGenerator = serviceProvider.GetRequiredService<ISecureTokenGenerator>();
+
+// Generate 32-byte token (default)
+string token = tokenGenerator.GenerateToken();
+
+// Generate custom-size token
+string customToken = tokenGenerator.GenerateToken(byteLength: 64);
+```
+
+### ?? One-Time Codes
+
+```csharp
+IOneTimeCodeGenerator otpGenerator = serviceProvider.GetRequiredService<IOneTimeCodeGenerator>();
+
+// Generate 6-digit OTP (default)
+string otp = otpGenerator.GenerateNumericCode();
+
+// Generate 8-digit OTP
+string customOtp = otpGenerator.GenerateNumericCode(digits: 8);
+```
+
+### ?? Name Processing
+
+```csharp
+INameEdit nameEdit = serviceProvider.GetRequiredService<INameEdit>();
+
+// Correct capitalization
+string corrected = nameEdit.NameCorrection("mehmet");  // "Mehmet"
+
+// Handle Turkish characters (Ý, þ, etc.)
+string turkishName = nameEdit.NameCorrection("istanbul"); // "Istanbul"
+
+// Format multiple names
+string fullName = nameEdit.NameCorrection("mehmet", "ali", "kara");
+// "Mehmet Ali Kara"
+
+// Format surname
+string surname = nameEdit.SirNameCorrection("karaguzel");  // "KARAGUZEL"
+
+// Combined name and surname
+string formatted = nameEdit.NameAndSirNameCorrection("mehmet", "karaguzel");
+// "Mehmet KARAGUZEL"
+
+// Remove special characters
+string cleaned = nameEdit.RemoveSpecialCharacters("Mehmet@123"); // "Mehmet123"
+```
+
+---
+
+## ? Validation Attributes
+
+### Minimum Age Validation
+```csharp
+using SpectraUtils.Attributes.ValidationAttributes;
+
+public class UserRegistration
+{
+    [MinimumAge(18)]
+    public DateTime BirthDate { get; set; }
+
+    [MinimumAge(21)]
+    public DateOnly BirthDateOnly { get; set; }
+}
+```
+
+### Turkish National ID Validation
+```csharp
+public class Citizen
+{
+    [TCIDValidation]
+    public string TcId { get; set; }  // Example: "10000000146"
+}
+```
+
+### Turkish Tax Number Validation
+```csharp
+public class Company
+{
+    [TurkishTaxNumberValidation]
+    public string TaxId { get; set; }  // 10-digit VKN
+}
+```
+
+### IBAN Validation
+```csharp
+public class BankAccount
+{
+    [IbanValidation]
+    public string IBAN { get; set; }
+
+    [IbanValidation(expectedCountryCode: "TR")]
+    public string TurkishIBAN { get; set; }
+}
+```
+
+### File Extension and Size Validation
+```csharp
+public class DocumentUpload
+{
+    // Max 1MB, jpg and png only
+    [AllowedExtensions(1024 * 1024, ".jpg", ".png")]
+    public IFormFile? Avatar { get; set; }
+
+    // For file paths
+    [AllowedExtensions(1024 * 1024, ".pdf", ".doc", ".docx")]
+    public string? DocumentPath { get; set; }
+}
+```
+
+---
+
+## ?? Programmatic Validators
+
+### IBAN Validation
+```csharp
+using SpectraUtils.Validation;
+
+// Basic validation
+bool isValid = IbanValidator.IsValid("TR33 0006 1000 0006 1001 2034 01");
+
+// With country code
+bool isTurkish = IbanValidator.IsValid(iban, expectedCountryCode: "TR");
+```
+
+### Turkish Tax Number Validation
+```csharp
+using SpectraUtils.Validation;
+
+bool isValidTaxId = TurkishTaxNumberValidator.IsValid("1234567890");
+```
+
+---
+
+## ?? Advanced Configuration
+
+### Custom PBKDF2 Settings
+```csharp
+builder.Services.AddSingleton<IPasswordHasher>(
+    new Pbkdf2PasswordHasher(
+        iterations: 310_000,  // OWASP 2024
+        saltSize: 32,         // 256-bit salt
+        keySize: 64           // 512-bit output
+    )
+);
+```
+
+---
+
+## ?? API Reference
+
+### ISpectraUtil (Facade)
+```csharp
+public interface ISpectraUtil
+{
+    INameEdit NameEdit { get; }
+    IPasswordHelper PasswordHelper { get; }
+    IPasswordHasher PasswordHasher { get; }
+    ISecureTokenGenerator TokenGenerator { get; }
+    IOneTimeCodeGenerator OneTimeCodeGenerator { get; }
+}
+```
+
+### IPasswordHelper
+```csharp
+public interface IPasswordHelper
+{
+    string CreateStardartPassword { get; }
+    string CreatePassword(
+        int passwordLength,
+        bool includeUppercaseLetter = true,
+        bool includeLowercaseLetter = true,
+        bool includeSpecialCharacter = true,
+        bool includeNumber = true);
+}
+```
+
+### IPasswordHasher
+```csharp
+public interface IPasswordHasher
+{
+    string Hash(string password);
+    bool Verify(string password, string hash);
+}
+```
+
+### ISecureTokenGenerator
+```csharp
+public interface ISecureTokenGenerator
+{
+    string GenerateToken(int byteLength = 32);
+}
+```
+
+### IOneTimeCodeGenerator
+```csharp
+public interface IOneTimeCodeGenerator
+{
+    string GenerateNumericCode(int digits = 6);
+}
+```
+
+### INameEdit
+```csharp
+public interface INameEdit
+{
+    string NameCorrection(string? name);
+    string NameCorrection(params string?[] names);
+    string SirNameCorrection(string? sirName);
+    string NameAndSirNameCorrection(string? name, string? sirName);
+    string RemoveSpecialCharacters(string? text);
+}
+```
+
+---
+
+## ?? Performance Considerations
+
+### PBKDF2 Hashing
+- **Default iterations**: 210,000 (OWASP 2021 standard)
+- **Recommended for 2024+**: 310,000+ iterations
+- **Performance**: Typically 100-300ms per operation
+
+### Token Generation
+- Uses `RandomNumberGenerator.GetBytes()` - cryptographically secure
+- Base64Url encoding for URL-safe tokens
+- No blocking I/O
+
+### Name Processing
+- Turkish-aware using `CultureInfo("tr-TR")`
+- Efficient with `StringBuilder`
+- Proper Turkish I/ý handling
+
+### Validation
+- Optimized algorithms for IBAN and VKN
+- Stack allocation with `stackalloc`
+- Early termination on failures
+
+---
+
+## ??? Security Best Practices
+
+### Password Storage
+```csharp
+// ? CORRECT: Hash before storing
+string passwordHash = passwordHasher.Hash(userInput);
+await database.SaveAsync(user => user.PasswordHash = passwordHash);
+
+// ? WRONG: Never store plain passwords
+user.Password = userInput;
+```
+
+### Token Generation
+```csharp
+// ? Use SpectraUtils for secure tokens
+string resetToken = tokenGenerator.GenerateToken(byteLength: 64);
+
+// ? WRONG: Weak random sources
+var random = new Random();
+string badToken = random.Next().ToString();
+```
+
+### One-Time Passwords
+```csharp
+// ? Implement proper OTP handling:
+// - Time-based expiration (5-15 minutes)
+// - Rate limiting (max 3-5 attempts)
+// - Account lockout after failures
+```
+
+---
+
+## ??? Supported .NET Versions
+
+| Framework | Status |
+|-----------|--------|
+| .NET 9.0  | ? Full Support |
+| .NET 8.0  | ? Compatible |
+| .NET 6.0  | ?? May work |
+
+---
+
+## ?? Testing
+
+131+ unit tests covering:
+- Edge cases and error conditions
+- Turkish character handling
+- Validation algorithms
+- Security token generation
+- PBKDF2 hashing and verification
+
+Run tests:
+```bash
+dotnet test
+```
+
+---
+
+## ?? Changelog
+
+### v2.0.0
+- ? PBKDF2 password hashing (RFC 2898)
+- ? DateOnly support for MinimumAgeAttribute
+- ? Turkish character handling improvements
+- ? Dependency injection integration
+- ? Comprehensive validation attributes
+- ? Security token generation
+- ? One-time code generation
+- ? Performance optimizations
+
+### v1.0.0
+- Initial release
+
+---
+
+## ?? Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+To contribute:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## ?? License
+
+MIT License - See LICENSE file for details.
+
+```
+MIT License
+
+Copyright (c) 2024 Oðuzhan KARAGUZEL
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
+
+---
+
+## ?? Support & Documentation
+
+- ?? **Author**: Oðuzhan KARAGUZEL
+- ?? **Website**: https://www.oguzhankaraguzel.com/
+- ?? **NuGet**: https://www.nuget.org/packages/SpectraUtils/
+- ?? **GitHub**: https://github.com/Oguzhankaraguzel/SpectraUtils
+- ?? **Issues**: https://github.com/Oguzhankaraguzel/SpectraUtils/issues
+
+---
+
+## ?? Security Disclosure
+
+If you discover a security vulnerability, please responsibly disclose it instead of using the issue tracker.
+
+---
+
+## ?? Acknowledgments
+
+- Built with .NET 9.0
+- Uses standard .NET cryptographic libraries
+- Turkish culture support via System.Globalization
+- Inspired by industry best practices and OWASP guidelines
+- Thanks to the .NET community
+
+---
+
+**Made with ?? by Oðuzhan KARAGUZEL**
