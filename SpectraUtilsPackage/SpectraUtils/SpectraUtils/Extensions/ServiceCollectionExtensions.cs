@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SpectraUtils.Abstract;
-using SpectraUtils.Concerete;
-using SpectraUtils.Concrete;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
+using SpectraUtils.Abstractions;
+using SpectraUtils.Configuration;
+using SpectraUtils.Services;
 
 namespace SpectraUtils.Extensions;
 
@@ -11,50 +13,46 @@ namespace SpectraUtils.Extensions;
 public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Adds SpectraUtils services to the specified <see cref="IServiceCollection"/>.
-    /// Registers <see cref="ISpectraUtil"/>, <see cref="INameEdit"/>, and <see cref="IPasswordHelper"/> as singletons.
+    /// Registers all SpectraUtils services as singletons (they are stateless and thread-safe):
+    /// <see cref="INameEdit"/>, <see cref="IPasswordHelper"/>, <see cref="IPasswordHasher"/>,
+    /// <see cref="ISecureTokenGenerator"/>, <see cref="IOneTimeCodeGenerator"/>, <see cref="ISpectraUtil"/>
+    /// and <see cref="TimeProvider.System"/> (used by <c>MinimumAgeAttribute</c>).
     /// </summary>
+    /// <remarks>
+    /// Services are added with <c>TryAdd</c>, so registrations you make before this call are kept.
+    /// Calling this method more than once is safe; every <paramref name="configure"/> delegate is applied.
+    /// </remarks>
     /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
+    /// <param name="configure">Optional delegate to configure <see cref="SpectraUtilsOptions"/>.</param>
     /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when services is null.</exception>
-    public static IServiceCollection AddSpectraUtils(this IServiceCollection services)
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="services"/> is null.</exception>
+    public static IServiceCollection AddSpectraUtils(this IServiceCollection services, Action<SpectraUtilsOptions>? configure = null)
     {
         ArgumentNullException.ThrowIfNull(services);
 
-        services.AddSingleton<INameEdit, NameEdit>();
-        services.AddSingleton<IPasswordHelper, PasswordHelper>();
-        services.AddSingleton<ISpectraUtil, SpectraUtil>();
+        OptionsBuilder<SpectraUtilsOptions> options = services.AddOptions<SpectraUtilsOptions>();
+        if (configure is not null)
+            options.Configure(configure);
 
-        // Security
-        services.AddSingleton<IPasswordHasher, Pbkdf2PasswordHasher>();
-        services.AddSingleton<ISecureTokenGenerator, SecureTokenGenerator>();
-        services.AddSingleton<IOneTimeCodeGenerator, OneTimeCodeGenerator>();
+        services.TryAddSingleton(TimeProvider.System);
 
-        return services;
-    }
-
-    /// <summary>
-    /// Adds SpectraUtils services to the specified <see cref="IServiceCollection"/> with scoped lifetime.
-    /// Useful when you need a new instance per request in web applications.
-    /// </summary>
-    /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
-    /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when services is null.</exception>
-    public static IServiceCollection AddSpectraUtilsScoped(this IServiceCollection services)
-    {
-        ArgumentNullException.ThrowIfNull(services);
-
-        services.AddScoped<INameEdit, NameEdit>();
-        services.AddScoped<IPasswordHelper, PasswordHelper>();
-        services.AddScoped<ISpectraUtil, SpectraUtil>();
-
-        // Security
-        services.AddScoped<IPasswordHasher, Pbkdf2PasswordHasher>();
-        services.AddScoped<ISecureTokenGenerator, SecureTokenGenerator>();
-        services.AddScoped<IOneTimeCodeGenerator, OneTimeCodeGenerator>();
+        services.TryAddSingleton<INameEdit>(sp =>
+        {
+            SpectraUtilsOptions o = sp.GetRequiredService<IOptions<SpectraUtilsOptions>>().Value;
+            return o.NameCulture is null ? new NameEdit() : new NameEdit(o.NameCulture);
+        });
+        services.TryAddSingleton<IPasswordHelper, PasswordHelper>();
+        services.TryAddSingleton<IPasswordHasher>(sp =>
+            new Pbkdf2PasswordHasher(sp.GetRequiredService<IOptions<SpectraUtilsOptions>>().Value.Pbkdf2));
+        services.TryAddSingleton<ISecureTokenGenerator, SecureTokenGenerator>();
+        services.TryAddSingleton<IOneTimeCodeGenerator, OneTimeCodeGenerator>();
+        services.TryAddSingleton<ISpectraUtil>(sp => new SpectraUtil(
+            sp.GetRequiredService<INameEdit>(),
+            sp.GetRequiredService<IPasswordHelper>(),
+            sp.GetRequiredService<IPasswordHasher>(),
+            sp.GetRequiredService<ISecureTokenGenerator>(),
+            sp.GetRequiredService<IOneTimeCodeGenerator>()));
 
         return services;
     }
 }
-
-

@@ -1,113 +1,28 @@
+using SpectraUtils.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace SpectraUtils.Attributes.ValidationAttributes;
 
 /// <summary>
-/// Validation attribute for verifying Turkish National Identification Numbers (TC Kimlik No).
+/// Validates that a string property contains a valid Turkish National Identification Number (TC Kimlik No).
+/// The value is mandatory: <see langword="null"/>, empty or whitespace values are invalid, so no separate
+/// <see cref="RequiredAttribute"/> is needed.
 /// </summary>
+/// <remarks>The error message supports the <c>{0}</c> placeholder for the display name.</remarks>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
-public class TCIDValidationAttribute : ValidationAttribute
+public sealed class TCIDValidationAttribute : ValidationAttribute
 {
-    private const int TcIdLength = 11;
-    private const string DefaultErrorMessage = "You must write a valid ID!";
-    private const string InvalidIdErrorMessage = "Invalid ID!";
+    private const string DefaultErrorMessage = "The {0} field is not a valid Turkish identity number.";
 
     /// <summary>
-    /// Determines whether the specified value is a valid Turkish National Identification Number.
+    /// Initializes a new instance of the <see cref="TCIDValidationAttribute"/> class.
     /// </summary>
-    /// <param name="value">The value of the object to validate.</param>
-    /// <param name="validationContext">The context information about the validation operation.</param>
-    /// <returns>A <see cref="ValidationResult"/> indicating whether validation succeeded.</returns>
-    protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+    public TCIDValidationAttribute()
+        : base(DefaultErrorMessage)
     {
-        if (value is not string tcKimlik || string.IsNullOrEmpty(tcKimlik))
-        {
-            return new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
-        }
-
-        return IsValidTcKimlik(tcKimlik)
-            ? ValidationResult.Success!
-            : new ValidationResult(ErrorMessage ?? InvalidIdErrorMessage);
     }
 
-    /// <summary>
-    /// Checks if the given string is a valid Turkish National Identification Number.
-    /// </summary>
-    /// <param name="tcKimlik">The identification number to validate.</param>
-    /// <returns>True if valid, otherwise false.</returns>
-    private static bool IsValidTcKimlik(ReadOnlySpan<char> tcKimlik)
-    {
-        // Length check and first digit cannot be '0'
-        if (tcKimlik.Length != TcIdLength || tcKimlik[0] == '0')
-            return false;
-
-        // Check if all digits are the same (invalid case like "11111111111" or "11111111110")
-        char firstDigit = tcKimlik[0];
-        bool allSame = true;
-        for (int i = 1; i < tcKimlik.Length; i++)
-        {
-            if (tcKimlik[i] != firstDigit)
-            {
-                allSame = false;
-                break;
-            }
-        }
-
-        // Also reject patterns like "11111111110" where almost all are the same
-        if (allSame)
-            return false;
-
-        // Check for sequences like "11111111110" - 10 same digits with different last
-        if (tcKimlik.Length >= 2)
-        {
-            char refChar = tcKimlik[0];
-            int differentCount = 0;
-            for (int i = 0; i < tcKimlik.Length; i++)
-            {
-                if (tcKimlik[i] != refChar)
-                    differentCount++;
-            }
-            // If only 1 digit is different from the rest, it's invalid
-            if (differentCount == 1)
-                return false;
-        }
-
-        int oddSum = 0;  // Sum of digits at odd positions (1, 3, 5, 7, 9) - 0-indexed: 0, 2, 4, 6, 8
-        int evenSum = 0; // Sum of digits at even positions (2, 4, 6, 8) - 0-indexed: 1, 3, 5, 7
-        int totalSum = 0;
-
-        for (int i = 0; i < TcIdLength; i++)
-        {
-            char c = tcKimlik[i];
-            if (c < '0' || c > '9')
-                return false;
-
-            int digit = c - '0';
-
-            if (i < 9)
-            {
-                if (i % 2 == 0)
-                    oddSum += digit;
-                else
-                    evenSum += digit;
-            }
-
-            if (i < 10)
-                totalSum += digit;
-        }
-
-        // 10th digit validation: ((oddSum * 7) - evenSum) % 10 == 10th digit
-        int tenthDigit = tcKimlik[9] - '0';
-        int expectedTenth = ((oddSum * 7) - evenSum) % 10;
-        // Handle negative modulo result
-        if (expectedTenth < 0)
-            expectedTenth += 10;
-
-        if (expectedTenth != tenthDigit)
-            return false;
-
-        // 11th digit validation: totalSum % 10 == 11th digit
-        int eleventhDigit = tcKimlik[10] - '0';
-        return (totalSum % 10) == eleventhDigit;
-    }
+    /// <inheritdoc />
+    public override bool IsValid(object? value)
+        => value is string identityNumber && TurkishIdentityNumberValidator.IsValid(identityNumber);
 }

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpectraUtils", "SpectraUtil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectraUtils.Tests", "SpectraUtils.Tests\SpectraUtils.Tests.csproj", "{FA1791A5-BC7C-4D04-A919-221F1DE378E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectraUtils.AspNetCore", "SpectraUtils.AspNetCore\SpectraUtils.AspNetCore.csproj", "{B732ACE0-3AD1-43B9-BF49-86695D195B8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{FA1791A5-BC7C-4D04-A919-221F1DE378E7}.Release|x64.Build.0 = Release|Any CPU
 		{FA1791A5-BC7C-4D04-A919-221F1DE378E7}.Release|x86.ActiveCfg = Release|Any CPU
 		{FA1791A5-BC7C-4D04-A919-221F1DE378E7}.Release|x86.Build.0 = Release|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Debug|x64.Build.0 = Debug|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Debug|x86.Build.0 = Debug|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Release|x64.ActiveCfg = Release|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Release|x64.Build.0 = Release|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Release|x86.ActiveCfg = Release|Any CPU
+		{B732ACE0-3AD1-43B9-BF49-86695D195B8C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,27 +1,31 @@
-using System.ComponentModel.DataAnnotations;
 using SpectraUtils.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace SpectraUtils.Attributes.ValidationAttributes;
 
 /// <summary>
-/// Validation attribute for verifying Turkish Tax Identification Numbers (VKN).
+/// Validates that a string property contains a valid Turkish Tax Identification Number (VKN).
+/// <see langword="null"/> values are considered valid; combine with <see cref="RequiredAttribute"/> when the value is mandatory.
 /// </summary>
+/// <remarks>The error message supports the <c>{0}</c> placeholder for the display name.</remarks>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
 public sealed class TurkishTaxNumberValidationAttribute : ValidationAttribute
 {
-    private const string DefaultErrorMessage = "Invalid Turkish Tax Number (VKN).";
+    private const string DefaultErrorMessage = "The {0} field is not a valid Turkish tax number (VKN).";
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TurkishTaxNumberValidationAttribute"/> class.
+    /// </summary>
+    public TurkishTaxNumberValidationAttribute()
+        : base(DefaultErrorMessage)
+    {
+    }
 
     /// <inheritdoc />
-    protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+    public override bool IsValid(object? value) => value switch
     {
-        if (value == null)
-            return ValidationResult.Success!;
-
-        if (value is not string vkn || string.IsNullOrWhiteSpace(vkn))
-            return new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
-
-        return TurkishTaxNumberValidator.IsValid(vkn)
-            ? ValidationResult.Success!
-            : new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
-    }
+        null => true,
+        string taxNumber => TurkishTaxNumberValidator.IsValid(taxNumber),
+        _ => false,
+    };
 }

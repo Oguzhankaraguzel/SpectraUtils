@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 
 namespace SpectraUtils.Extensions;
 
@@ -10,12 +11,23 @@ public static class LinqExtensions
     /// <summary>
     /// Returns <see langword="true"/> when the sequence is <see langword="null"/> or contains no elements.
     /// </summary>
+    /// <remarks>
+    /// Collections are checked through their count without enumeration. An <see cref="IQueryable{T}"/> is
+    /// checked with <see cref="Queryable.Any{TSource}(IQueryable{TSource})"/> so the provider can translate it
+    /// (e.g. to <c>EXISTS</c> in SQL). Other lazy sequences are enumerated up to their first element.
+    /// </remarks>
     /// <typeparam name="T">Element type.</typeparam>
     /// <param name="source">Sequence.</param>
     public static bool IsNullOrEmpty<T>([NotNullWhen(false)] this IEnumerable<T>? source)
     {
         if (source is null)
             return true;
+
+        if (source.TryGetNonEnumeratedCount(out int count))
+            return count == 0;
+
+        if (source is IQueryable<T> queryable)
+            return !queryable.Any();
 
         return !source.Any();
     }
@@ -41,12 +53,12 @@ public static class LinqExtensions
     /// Applies a <c>Where</c> filter only if <paramref name="condition"/> is <see langword="true"/>.
     /// </summary>
     /// <typeparam name="T">Element type.</typeparam>
-    /// <param name="source">Sequence.</param>
+    /// <param name="source">Query.</param>
     /// <param name="condition">Condition to apply the predicate.</param>
     /// <param name="predicate">Filter predicate.</param>
-    /// <returns>Filtered sequence when condition is true; otherwise returns source.</returns>
+    /// <returns>Filtered query when condition is true; otherwise returns source.</returns>
     /// <exception cref="ArgumentNullException">Thrown when source or predicate is null.</exception>
-    public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, bool condition, System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+    public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, bool condition, Expression<Func<T, bool>> predicate)
     {
         ArgumentNullException.ThrowIfNull(source);
         ArgumentNullException.ThrowIfNull(predicate);
@@ -66,51 +78,33 @@ public static class LinqExtensions
         ArgumentNullException.ThrowIfNull(source);
         ArgumentNullException.ThrowIfNull(action);
 
-        foreach (var item in source)
+        foreach (T item in source)
             action(item);
     }
 
     /// <summary>
-    /// Executes an action for each element in the sequence and returns the original sequence.
-    /// Useful for fluent pipelines.
+    /// Executes an action for each element as the sequence is enumerated and yields the element unchanged.
+    /// Useful for logging or debugging inside fluent pipelines. Execution is deferred.
     /// </summary>
     /// <typeparam name="T">Element type.</typeparam>
     /// <param name="source">Sequence.</param>
     /// <param name="action">Action to execute.</param>
     /// <returns>The original sequence.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when source or action is null.</exception>
+    /// <exception cref="ArgumentNullException">Thrown immediately when source or action is null.</exception>
     public static IEnumerable<T> Tap<T>(this IEnumerable<T> source, Action<T> action)
     {
         ArgumentNullException.ThrowIfNull(source);
         ArgumentNullException.ThrowIfNull(action);
 
-        foreach (var item in source)
+        return TapIterator(source, action);
+    }
+
+    private static IEnumerable<T> TapIterator<T>(IEnumerable<T> source, Action<T> action)
+    {
+        foreach (T item in source)
         {
             action(item);
             yield return item;
-        }
-    }
-
-    /// <summary>
-    /// Distinct by key selector for older target frameworks.
-    /// On .NET 6+ you can also use <c>Enumerable.DistinctBy</c>.
-    /// </summary>
-    /// <typeparam name="T">Element type.</typeparam>
-    /// <typeparam name="TKey">Key type.</typeparam>
-    /// <param name="source">Sequence.</param>
-    /// <param name="keySelector">Key selector.</param>
-    /// <param name="comparer">Optional key comparer.</param>
-    /// <returns>Sequence with distinct keys.</returns>
-    public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector, IEqualityComparer<TKey>? comparer = null)
-    {
-        ArgumentNullException.ThrowIfNull(source);
-        ArgumentNullException.ThrowIfNull(keySelector);
-
-        var seen = new HashSet<TKey>(comparer);
-        foreach (var item in source)
-        {
-            if (seen.Add(keySelector(item)))
-                yield return item;
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace SpectraUtils.Validation;
 
 /// <summary>
@@ -5,84 +7,37 @@ namespace SpectraUtils.Validation;
 /// </summary>
 public static class TurkishTaxNumberValidator
 {
+    private const int Length = 10;
+
+    // 2^(9-i) for i = 0..8.
+    private static ReadOnlySpan<int> PowersOfTwo => [512, 256, 128, 64, 32, 16, 8, 4, 2];
+
     /// <summary>
-    /// Validates a Turkish Tax Identification Number (VKN).
+    /// Validates a Turkish Tax Identification Number (VKN) using the official check digit algorithm.
     /// </summary>
-    /// <param name="taxNumber">A 10-digit VKN. Whitespaces are ignored.</param>
+    /// <param name="taxNumber">A 10-digit VKN. Whitespace is ignored.</param>
     /// <returns><see langword="true"/> when the VKN is valid; otherwise <see langword="false"/>.</returns>
-    public static bool IsValid(string taxNumber)
+    public static bool IsValid([NotNullWhen(true)] string? taxNumber)
     {
-        if (string.IsNullOrWhiteSpace(taxNumber))
+        Span<int> digits = stackalloc int[Length];
+        if (!DigitInput.TryRead(taxNumber, digits))
             return false;
-
-        // Remove whitespaces.
-        Span<char> buffer = stackalloc char[taxNumber.Length];
-        int len = 0;
-        foreach (char c in taxNumber)
-        {
-            if (!char.IsWhiteSpace(c))
-                buffer[len++] = c;
-        }
-
-        ReadOnlySpan<char> vkn = buffer[..len];
-
-        if (vkn.Length != 10)
-            return false;
-
-        int[] digits = new int[10];
-
-        for (int i = 0; i < 10; i++)
-        {
-            char c = vkn[i];
-            if (c < '0' || c > '9')
-                return false;
-
-            digits[i] = c - '0';
-        }
-
-        // VKN algorithm:
-        // For i=0..8:
-        //   temp = (digit[i] + (9 - i)) % 10
-        //   temp = (temp * 2^(9-i)) % 9  (if temp != 0)
-        // Sum temps, and check digit is (10 - (sum % 10)) % 10.
 
         int sum = 0;
 
         for (int i = 0; i < 9; i++)
         {
-            int temp = (digits[i] + (9 - i)) % 10;
+            int temp = (digits[i] + 9 - i) % 10;
+            if (temp == 0)
+                continue;
 
-            if (temp != 0)
-            {
-                int pow = Pow2Mod9(9 - i);
-                temp = (temp * pow) % 9;
-            }
+            int weighted = temp * PowersOfTwo[i] % 9;
 
-            sum += temp;
+            // A non-zero intermediate value whose weighted result is divisible by 9 counts as 9, not 0.
+            sum += weighted == 0 ? 9 : weighted;
         }
 
-        int checkDigit = (10 - (sum % 10)) % 10;
+        int checkDigit = (10 - sum % 10) % 10;
         return digits[9] == checkDigit;
-    }
-
-    /// <summary>
-    /// Computes (2^exp) mod 9.
-    /// </summary>
-    private static int Pow2Mod9(int exp)
-    {
-        int result = 1;
-        int baseVal = 2;
-        int e = exp;
-
-        while (e > 0)
-        {
-            if ((e & 1) == 1)
-                result = (result * baseVal) % 9;
-
-            baseVal = (baseVal * baseVal) % 9;
-            e >>= 1;
-        }
-
-        return result;
     }
 }

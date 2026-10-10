@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <PackageId>SpectraUtils.AspNetCore</PackageId>
+    <Title>Spectra Utils for ASP.NET Core</Title>
+    <Product>Spectra Utils</Product>
+    <Description>ASP.NET Core add-ons for SpectraUtils: file upload validation (allowed extensions and maximum size) for IFormFile and IFormFileCollection.</Description>
+    <PackageTags>validation;aspnetcore;iformfile;upload;file-extension;file-size;dataannotations</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="SpectraUtils.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpectraUtils\SpectraUtils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="..\SpectraUtils\tools.png" Pack="true" PackagePath="\" Link="tools.png" />
+  </ItemGroup>
+</Project>

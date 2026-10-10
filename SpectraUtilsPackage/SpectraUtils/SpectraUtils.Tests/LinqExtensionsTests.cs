@@ -15,51 +15,58 @@ public sealed class LinqExtensionsTests
     [Fact]
     public void IsNullOrEmpty_Empty_ReturnsTrue()
     {
-        var source = Array.Empty<int>();
-        Assert.True(source.IsNullOrEmpty());
+        Assert.True(Array.Empty<int>().IsNullOrEmpty());
+        Assert.True(new List<int>().IsNullOrEmpty());
+        Assert.True(Enumerable.Empty<int>().IsNullOrEmpty());
     }
 
     [Fact]
     public void IsNullOrEmpty_WithItems_ReturnsFalse()
     {
-        var source = new[] { 1 };
+        Assert.False(new[] { 1 }.IsNullOrEmpty());
+    }
+
+    [Fact]
+    public void IsNullOrEmpty_LazySequence_StopsAfterFirstElement()
+    {
+        int enumerated = 0;
+        IEnumerable<int> source = Enumerable.Range(0, 1_000).Select(x => { enumerated++; return x; }).Where(_ => true);
+
         Assert.False(source.IsNullOrEmpty());
+        Assert.Equal(1, enumerated);
+    }
+
+    [Fact]
+    public void IsNullOrEmpty_Queryable_Works()
+    {
+        Assert.False(new[] { 1, 2 }.AsQueryable().Where(x => x > 1).IsNullOrEmpty());
+        Assert.True(new[] { 1, 2 }.AsQueryable().Where(x => x > 5).IsNullOrEmpty());
     }
 
     [Fact]
     public void WhereIf_ConditionFalse_ReturnsOriginal()
     {
         var source = new[] { 1, 2, 3 };
-        var result = source.WhereIf(false, x => x > 1);
-
-        Assert.True(ReferenceEquals(source, result));
+        Assert.Same(source, source.WhereIf(false, x => x > 1));
     }
 
     [Fact]
     public void WhereIf_ConditionTrue_Filters()
     {
-        var source = new[] { 1, 2, 3 };
-        var result = source.WhereIf(true, x => x > 1).ToArray();
-
-        Assert.Equal(new[] { 2, 3 }, result);
+        Assert.Equal(new[] { 2, 3 }, new[] { 1, 2, 3 }.WhereIf(true, x => x > 1).ToArray());
     }
 
     [Fact]
     public void WhereIf_IQueryable_AppliesPredicateWhenTrue()
     {
-        var source = new[] { 1, 2, 3 }.AsQueryable();
-        var filtered = source.WhereIf(true, x => x > 2).ToArray();
-
-        Assert.Equal(new[] { 3 }, filtered);
+        Assert.Equal(new[] { 3 }, new[] { 1, 2, 3 }.AsQueryable().WhereIf(true, x => x > 2).ToArray());
     }
 
     [Fact]
     public void WhereIf_IQueryable_ReturnsOriginalWhenFalse()
     {
         var source = new[] { 1, 2, 3 }.AsQueryable();
-        var filtered = source.WhereIf(false, x => x > 2);
-
-        Assert.Equal(source, filtered);
+        Assert.Same(source, source.WhereIf(false, x => x > 2));
     }
 
     [Fact]
@@ -73,11 +80,8 @@ public sealed class LinqExtensionsTests
     [Fact]
     public void ForEach_ExecutesAction()
     {
-        var values = new[] { 1, 2, 3 };
         int sum = 0;
-
-        values.ForEach(x => sum += x);
-
+        new[] { 1, 2, 3 }.AsEnumerable().ForEach(x => sum += x);
         Assert.Equal(6, sum);
     }
 
@@ -102,21 +106,27 @@ public sealed class LinqExtensionsTests
     }
 
     [Fact]
-    public void DistinctBy_RemovesDuplicates()
+    public void Tap_IsDeferred()
     {
-        var values = new[]
-        {
-            new Item("a", 1),
-            new Item("b", 1),
-            new Item("c", 2)
-        };
-
-        var distinct = values.DistinctBy(x => x.Group).ToArray();
-
-        Assert.Equal(2, distinct.Length);
-        Assert.Equal("a", distinct[0].Name);
-        Assert.Equal("c", distinct[1].Name);
+        int count = 0;
+        _ = new[] { 1, 2, 3 }.Tap(_ => count++);
+        Assert.Equal(0, count);
     }
 
-    private sealed record Item(string Name, int Group);
+    [Fact]
+    public void Tap_NullArguments_ThrowImmediately()
+    {
+        // Previously the checks ran only when the result was enumerated.
+        IEnumerable<int> source = new[] { 1 };
+        Assert.Throws<ArgumentNullException>(() => LinqExtensions.Tap<int>(null!, _ => { }));
+        Assert.Throws<ArgumentNullException>(() => source.Tap(null!));
+    }
+
+    [Fact]
+    public void DistinctBy_WithComparer_ResolvesToBclWithoutAmbiguity()
+    {
+        // SpectraUtils 2.x shipped its own DistinctBy, which made this call fail with CS0121.
+        var values = new[] { "a", "A", "b" };
+        Assert.Equal(2, values.DistinctBy(x => x, StringComparer.OrdinalIgnoreCase).Count());
+    }
 }

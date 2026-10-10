@@ -1,15 +1,25 @@
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
+using System.Globalization;
 
 namespace SpectraUtils.Attributes.ValidationAttributes;
 
 /// <summary>
-/// Validation attribute to enforce a minimum age requirement based on birth date.
+/// Validates that a birth date (<see cref="DateOnly"/>, <see cref="DateTime"/> or <see cref="DateTimeOffset"/>)
+/// belongs to someone who is at least <see cref="MinimumAge"/> years old.
+/// <see langword="null"/> values are considered valid; combine with <see cref="RequiredAttribute"/> when the value is mandatory.
 /// </summary>
+/// <remarks>
+/// <para>The error message supports <c>{0}</c> (display name) and <c>{1}</c> (minimum age) placeholders.</para>
+/// <para>
+/// "Today" comes from the <see cref="TimeProvider"/> registered in the validation context's service provider
+/// (ASP.NET Core passes the request services), or <see cref="TimeProvider.System"/> when none is registered.
+/// This makes the attribute testable and lets you control the time zone.
+/// </para>
+/// </remarks>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
-public class MinimumAgeAttribute : ValidationAttribute
+public sealed class MinimumAgeAttribute : ValidationAttribute
 {
-    private readonly int _minimumAge;
+    private const string DefaultErrorMessage = "The {0} field requires a minimum age of {1}.";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MinimumAgeAttribute"/> class.
@@ -17,95 +27,69 @@ public class MinimumAgeAttribute : ValidationAttribute
     /// <param name="minimumAge">The minimum age required.</param>
     /// <exception cref="ArgumentOutOfRangeException">Thrown when minimum age is negative.</exception>
     public MinimumAgeAttribute(int minimumAge)
+        : base(DefaultErrorMessage)
     {
-        if (minimumAge < 0)
-            throw new ArgumentOutOfRangeException(nameof(minimumAge), "Minimum age cannot be negative.");
-
-        _minimumAge = minimumAge;
+        ArgumentOutOfRangeException.ThrowIfNegative(minimumAge);
+        MinimumAge = minimumAge;
     }
 
     /// <summary>
     /// Gets the minimum age requirement.
     /// </summary>
-    public int MinimumAge => _minimumAge;
+    public int MinimumAge { get; }
 
-    /// <summary>
-    /// Validates whether the specified birth date meets the minimum age requirement.
-    /// </summary>
-    /// <param name="value">The birth date value to validate. Supports <see cref="DateTime"/> and <see cref="DateOnly"/>.</param>
-    /// <param name="validationContext">The context information about the validation operation.</param>
-    /// <returns>A <see cref="ValidationResult"/> indicating whether validation succeeded.</returns>
-    protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+    /// <inheritdoc />
+    public override string FormatErrorMessage(string name)
+        => string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, MinimumAge);
+
+    /// <inheritdoc />
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        if (value == null)
-        {
-            // Check if this property is nullable - if so, allow null
-            if (validationContext.MemberName != null)
-            {
-                var property = validationContext.ObjectType?.GetProperty(validationContext.MemberName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                if (property != null && IsNullableType(property.PropertyType))
-                {
-                    return ValidationResult.Success!;
-                }
-            }
-            
-            return new ValidationResult(GetErrorMessage());
-        }
+        // validationContext is null when the attribute is used through IsValid(object).
+        ValidationContext? context = validationContext;
+
+        if (value is null)
+            return ValidationResult.Success;
 
         DateOnly birthDate;
-
-        if (value is DateTime dateTime)
+        switch (value)
         {
-            birthDate = DateOnly.FromDateTime(dateTime);
-        }
-        else if (value is DateOnly dateOnly)
-        {
-            birthDate = dateOnly;
-        }
-        else
-        {
-            return new ValidationResult("Invalid date format. Expected DateTime or DateOnly.");
-        }
-
-        DateOnly today = DateOnly.FromDateTime(DateTime.Today);
-        int age = CalculateAge(birthDate, today);
-
-        if (age >= _minimumAge)
-        {
-            return ValidationResult.Success!;
+            case DateOnly dateOnly:
+                birthDate = dateOnly;
+                break;
+            case DateTime dateTime:
+                birthDate = DateOnly.FromDateTime(dateTime);
+                break;
+            case DateTimeOffset dateTimeOffset:
+                birthDate = DateOnly.FromDateTime(dateTimeOffset.DateTime);
+                break;
+            default:
+                return new ValidationResult(
+                    $"The {context?.DisplayName ?? "value"} field must be a DateOnly, DateTime or DateTimeOffset value.",
+                    MemberNames(context));
         }
 
-        return new ValidationResult(GetErrorMessage());
+        TimeProvider timeProvider = context?.GetService(typeof(TimeProvider)) as TimeProvider ?? TimeProvider.System;
+        DateOnly today = DateOnly.FromDateTime(timeProvider.GetLocalNow().DateTime);
+
+        return CalculateAge(birthDate, today) >= MinimumAge
+            ? ValidationResult.Success
+            : new ValidationResult(FormatErrorMessage(context?.DisplayName ?? "value"), MemberNames(context));
     }
 
     /// <summary>
-    /// Calculates age accurately considering leap years.
+    /// Calculates age in completed years. Someone born on 29 February turns a year older on 28 February in non-leap years.
     /// </summary>
-    private static int CalculateAge(DateOnly birthDate, DateOnly today)
+    internal static int CalculateAge(DateOnly birthDate, DateOnly today)
     {
         int age = today.Year - birthDate.Year;
 
-        // Adjust if birthday hasn't occurred this year
         if (birthDate.AddYears(age) > today)
-        {
             age--;
-        }
 
         return age;
     }
 
-    private static bool IsNullableType(Type type)
-    {
-        // Check if it's a nullable value type (Nullable<T>)
-        if (Nullable.GetUnderlyingType(type) != null)
-            return true;
-
-        // Check if it's a reference type (which can be null)
-        return !type.IsValueType;
-    }
-
-    private string GetErrorMessage()
-    {
-        return ErrorMessage ?? $"Birth date must be {_minimumAge} years or older.";
-    }
+    private static string[]? MemberNames(ValidationContext? context)
+        => context?.MemberName is { } memberName ? [memberName] : null;
 }

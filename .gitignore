@@ -1,0 +1,24 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+artifacts/
+*.nupkg
+*.snupkg
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+
+# Test results & logs
+TestResults/
+*.trx
+*.log
+coverage*/
+
+# Misc
+*.Backup.tmp
+*.tmp

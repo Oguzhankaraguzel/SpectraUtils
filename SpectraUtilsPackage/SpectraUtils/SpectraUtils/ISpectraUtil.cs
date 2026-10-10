@@ -1,9 +1,10 @@
-using SpectraUtils.Abstract;
+using SpectraUtils.Abstractions;
 
 namespace SpectraUtils;
 
 /// <summary>
-/// Interface for the main utility class providing access to name editing, password management, and security services.
+/// Convenience facade that groups all SpectraUtils services. Prefer injecting the individual
+/// interfaces; use this facade when you need several services or do not use dependency injection.
 /// </summary>
 public interface ISpectraUtil
 {
@@ -13,12 +14,12 @@ public interface ISpectraUtil
     INameEdit NameEdit { get; }
 
     /// <summary>
-    /// Gets the password helper utility for creating and hashing passwords.
+    /// Gets the password helper utility for generating passwords.
     /// </summary>
     IPasswordHelper PasswordHelper { get; }
 
     /// <summary>
-    /// Gets the low-level password hasher for hashing/verifying persisted passwords (PBKDF2).
+    /// Gets the password hasher for hashing/verifying persisted passwords (PBKDF2).
     /// </summary>
     IPasswordHasher PasswordHasher { get; }
 

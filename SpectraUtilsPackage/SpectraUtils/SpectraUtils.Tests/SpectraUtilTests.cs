@@ -1,7 +1,5 @@
-using SpectraUtils.Abstract;
-using SpectraUtils.Concerete;
-using SpectraUtils.Concrete;
-using System.Linq;
+using SpectraUtils.Abstractions;
+using SpectraUtils.Services;
 using Xunit;
 
 namespace SpectraUtils.Tests;
@@ -9,15 +7,15 @@ namespace SpectraUtils.Tests;
 public sealed class SpectraUtilTests
 {
     [Fact]
-    public void DefaultConstructor_ProvidesServices()
+    public void DefaultConstructor_ProvidesDefaultServices()
     {
         var util = new SpectraUtil();
 
-        Assert.NotNull(util.NameEdit);
-        Assert.NotNull(util.PasswordHelper);
-        Assert.NotNull(util.PasswordHasher);
-        Assert.NotNull(util.TokenGenerator);
-        Assert.NotNull(util.OneTimeCodeGenerator);
+        Assert.IsType<NameEdit>(util.NameEdit);
+        Assert.IsType<PasswordHelper>(util.PasswordHelper);
+        Assert.IsType<Pbkdf2PasswordHasher>(util.PasswordHasher);
+        Assert.IsType<SecureTokenGenerator>(util.TokenGenerator);
+        Assert.IsType<OneTimeCodeGenerator>(util.OneTimeCodeGenerator);
 
         Assert.Same(util.NameEdit, util.NameEdit);
         Assert.Same(util.PasswordHelper, util.PasswordHelper);
@@ -26,11 +24,11 @@ public sealed class SpectraUtilTests
     [Fact]
     public void CustomDependencies_AreUsed()
     {
-        var nameEdit = new StubNameEdit();
-        var passwordHelper = new StubPasswordHelper();
+        var nameEdit = new NameEdit();
+        var passwordHelper = new PasswordHelper();
         var passwordHasher = new StubPasswordHasher();
-        var tokenGenerator = new StubTokenGenerator();
-        var codeGenerator = new StubCodeGenerator();
+        var tokenGenerator = new SecureTokenGenerator();
+        var codeGenerator = new OneTimeCodeGenerator();
 
         var util = new SpectraUtil(nameEdit, passwordHelper, passwordHasher, tokenGenerator, codeGenerator);
 
@@ -44,11 +42,11 @@ public sealed class SpectraUtilTests
     [Fact]
     public void CustomDependencies_Null_Throws()
     {
-        var nameEdit = new StubNameEdit();
-        var passwordHelper = new StubPasswordHelper();
+        var nameEdit = new NameEdit();
+        var passwordHelper = new PasswordHelper();
         var passwordHasher = new StubPasswordHasher();
-        var tokenGenerator = new StubTokenGenerator();
-        var codeGenerator = new StubCodeGenerator();
+        var tokenGenerator = new SecureTokenGenerator();
+        var codeGenerator = new OneTimeCodeGenerator();
 
         Assert.Throws<ArgumentNullException>(() => new SpectraUtil(null!, passwordHelper, passwordHasher, tokenGenerator, codeGenerator));
         Assert.Throws<ArgumentNullException>(() => new SpectraUtil(nameEdit, null!, passwordHasher, tokenGenerator, codeGenerator));
@@ -57,38 +55,10 @@ public sealed class SpectraUtilTests
         Assert.Throws<ArgumentNullException>(() => new SpectraUtil(nameEdit, passwordHelper, passwordHasher, tokenGenerator, null!));
     }
 
-    private sealed class StubNameEdit : INameEdit
-    {
-        public string CreateUserName(string? name) => name ?? string.Empty;
-        public string FullNameCorrection(string? name, string? sirName) => $"{name} {sirName}".Trim();
-        public string FullNameCorrection(string?[] names, string?[] sirNames) => string.Join(" ", names.Concat(sirNames));
-        public string NameCorrection(string? name) => name ?? string.Empty;
-        public string NameCorrection(params string?[] names) => string.Join(" ", names);
-        public string SirNameCorrection(string? sirName) => sirName ?? string.Empty;
-        public string SirNameCorrection(params string?[] sirNames) => string.Join(" ", sirNames);
-        public string StandardizeCharacters(string? input) => input ?? string.Empty;
-    }
-
-    private sealed class StubPasswordHelper : IPasswordHelper
-    {
-        public string CreatePassword(int passwordLength, bool includeUppercaseLetter = true, bool includeLowercaseLetter = true, bool includeSpecialCharacter = true, bool includeNumber = true) => new('x', passwordLength);
-        public string CreateStardartPassword => "standard";
-        public string HashPassword(string password) => password;
-    }
-
     private sealed class StubPasswordHasher : IPasswordHasher
     {
         public string Hash(string password) => password;
         public bool Verify(string password, string hash) => password == hash;
-    }
-
-    private sealed class StubTokenGenerator : ISecureTokenGenerator
-    {
-        public string GenerateToken(int byteLength = 32) => new('a', byteLength);
-    }
-
-    private sealed class StubCodeGenerator : IOneTimeCodeGenerator
-    {
-        public string GenerateNumericCode(int digits = 6) => new('1', digits);
+        public bool NeedsRehash(string hash) => false;
     }
 }
